@@ -130,7 +130,23 @@ def process_audio(raw, output, audio, preset):
         fail(f"Audio output is empty or invalid: {output.name}")
 
 
-async def synthesize(plan, target, attempts):
+def generation_settings(config):
+    settings = config.get("generation")
+    if not isinstance(settings, dict):
+        fail("Missing generation settings in config.json")
+    timeout = settings.get("timeout_seconds")
+    attempts = settings.get("max_attempts")
+    retry_delay = settings.get("retry_delay_seconds")
+    if type(timeout) not in (int, float) or not 1 <= timeout <= 120:
+        fail("generation.timeout_seconds must be a number from 1 to 120")
+    if type(attempts) is not int or attempts not in (1, 2):
+        fail("generation.max_attempts must be 1 or 2 (at most one retry)")
+    if type(retry_delay) not in (int, float) or not 0 <= retry_delay <= 60:
+        fail("generation.retry_delay_seconds must be a number from 0 to 60")
+    return timeout, attempts, retry_delay
+
+
+async def synthesize(plan, target, timeout_seconds, attempts, retry_delay_seconds):
     import edge_tts
 
     for attempt in range(1, attempts + 1):
@@ -139,16 +155,33 @@ async def synthesize(plan, target, attempts):
                 text=plan["text"], voice=plan["voice"],
                 rate=plan["rate"], pitch=plan["pitch"], volume=plan["volume"],
             )
-            await communicate.save(str(target))
-            if target.stat().st_size < 512:
+            await asyncio.wait_for(
+                communicate.save(str(target)), timeout=timeout_seconds
+            )
+            if not target.is_file() or target.stat().st_size < 512:
                 raise RuntimeError("Edge returned an empty audio file")
             return
         except Exception as exc:
             target.unlink(missing_ok=True)
+            detail = (
+                f"timeout after {timeout_seconds}s"
+                if isinstance(exc, TimeoutError) else str(exc)
+            )
+            print(
+                f"{plan['id']} ({plan['voice']}): attempt "
+                f"{attempt}/{attempts} failed: {detail}",
+                file=sys.stderr, flush=True,
+            )
             if attempt >= attempts:
-                raise RuntimeError(f"{plan['id']}: Edge synthesis failed after {attempts} attempts") from exc
-            print(f"Retry {attempt}/{attempts} for {plan['id']}: {exc}", file=sys.stderr)
-            await asyncio.sleep(2 * attempt)
+                raise RuntimeError(
+                    f"{plan['id']} ({plan['voice']}): failed after "
+                    f"{attempts} attempt(s); aborting all audio generation"
+                ) from exc
+            print(
+                f"Retrying {plan['id']} in {retry_delay_seconds}s...",
+                file=sys.stderr, flush=True,
+            )
+            await asyncio.sleep(retry_delay_seconds)
 
 
 def package(output_dir, plans):
@@ -174,7 +207,12 @@ async def main():
     args = parser.parse_args()
     config, template = load_json("config.json"), load_json("templates.json")
     plans = resolve(config, template)
-    print(f"Validated {len(plans)} announcements ({len(set(p['voice'] for p in plans))} voices)")
+    timeout_seconds, attempts, retry_delay_seconds = generation_settings(config)
+    print(
+        f"Validated {len(plans)} announcements "
+        f"({len(set(p['voice'] for p in plans))} voices), "
+        f"timeout={timeout_seconds}s, attempts={attempts}, retry_delay={retry_delay_seconds}s"
+    )
     if args.validate:
         return
     out = Path(args.output).resolve()
@@ -189,7 +227,9 @@ async def main():
         for index, plan in enumerate(plans, 1):
             print(f"[{index}/{len(plans)}] {plan['id']} | {plan['voice']} | {plan['effect']}", flush=True)
             raw = raw_dir / (plan["id"] + ".mp3")
-            await synthesize(plan, raw, attempts=3)
+            await synthesize(
+                plan, raw, timeout_seconds, attempts, retry_delay_seconds
+            )
             process_audio(raw, out / plan["filename"], config["audio"],
                           config["audio"]["effect_presets"][plan["effect"]])
         package(out, plans)
