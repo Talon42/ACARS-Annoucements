@@ -13,7 +13,10 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "medium"
+      "effect": "medium",
+      "speech_key": "51c4f6a4e72800f4499b4e8af08b7ade4ff097e9ac7374a292dfb0d617ef796e",
+      "processing_key": "991898c4fa5734406fe04a8f43d87f206f01e2e12de2bcedb5f078ff55f45bb8",
+      "sha256": "34dc9c7f15aea1aa4febd00d40ce9e7012d804ee3ee05ded049cb6305cc6a335"
     },
     {
       "id": "boarding_welcome_captain",
@@ -25,7 +28,10 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "medium"
+      "effect": "medium",
+      "speech_key": "c9a8c17965f666ba7fc53209400e7134a3fba48bc2f212e8d4101156348fc93c",
+      "processing_key": "da2f570aca3470529ab31da71442628392b31ed8b759977d8e4f69b9092b6206",
+      "sha256": "4c7fe56c51778f1ba27d7033b626940a18e3dec95d5ccc3f6eeace2a68448864"
     },
     {
       "id": "security_briefing_fa",
@@ -37,7 +43,10 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "medium"
+      "effect": "medium",
+      "speech_key": "9689c337b23696ea43dec39d6aa8c4c89947c9541ab246c8109bf14d7b73dd13",
+      "processing_key": "ec957c12e966b482d70e882d4e5b9c06cb31da04d0cb949df5425c307af6a4de",
+      "sha256": "fc20c93afe377208d0300bfd9302f8e105e191aa213ad29ebdba62b03469c895"
     },
     {
       "id": "prepare_for_departure_fa",
@@ -49,7 +58,10 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "medium"
+      "effect": "medium",
+      "speech_key": "35c19ccde744667a62eb0c41c8d4de35c2a2aff24cf8e86585dfe9efd01508b3",
+      "processing_key": "af0beb7caa95dc812de67a25b8561ba3eecfaac5ca782714ff26706fcaf22cef",
+      "sha256": "38ef4f2a496a1f368fa1cc0ab5b0bb70f4b6be36a5e69214b0cd33687261e7da"
     },
     {
       "id": "prepare_for_departure_crew",
@@ -61,7 +73,10 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "medium"
+      "effect": "medium",
+      "speech_key": "cd5828e3eb2c06840602dbefdda7c2ce635c68b73fe80d02f5d851bc117ce399",
+      "processing_key": "3c1b3da2accecd735072e7fa8ee86347eca15502f60547da17fa7ae009202a93",
+      "sha256": "61ce8d4fc345abe2f806dc3ca949d1e10ea362411d9e042cca198eaba6a6e6d3"
     },
     {
       "id": "prepare_for_departure_captain",
@@ -73,7 +88,10 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "medium"
+      "effect": "medium",
+      "speech_key": "1bac7b9aff02cd6787cdbfe142e2f93d27a5e6d7968ccb15d96184bff863c78c",
+      "processing_key": "89bdf3156363759dc0366f6fb695328ba07681c5a39f24623fd2f3f201835cfa",
+      "sha256": "a6bd3bb9888825c79bf0fe381efa956b0fc89298a4d4b356c173e23a0857010b"
     },
     {
       "id": "portable_electronics_fa",
@@ -85,7 +103,10 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "medium"
+      "effect": "medium",
+      "speech_key": "09b8095e41b082c3600ba8b19e4673ef9a9d4f48f4a159c1c06e97e14a6bb5da",
+      "processing_key": "b47c01247dac6c40617c4ef8678b80524a3a177e72e8ac29e812dfccd3adede1",
+      "sha256": "0521a247ff9581b4f8398c7e81600cae7c6fa6fdd5b573cce59106fd86208ea0"
     },
     {
       "id": "flight_progress_captain",
@@ -97,7 +118,10 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "medium"
+      "effect": "medium",
+      "speech_key": "04acb2ec4671f576e90a03e0b884f0398b5c4f92a086645eb23a4e9552b67691",
+      "processing_key": "df7c8af60e380547a51f54e35aa5f437cacad25e00e87e3f6458e7c66b041535",
+      "sha256": "73cb7882ba2b7884bdd800c537632be92e780454188a2a6cdc585ef11526eb0a"
     },
     {
       "id": "final_descent_captain",
@@ -109,7 +133,10 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "medium"
+      "effect": "medium",
+      "speech_key": "0207f036e4a3775aeb433c81f90840e13fb3b2f735e3e67508225ceac852e2c5",
+      "processing_key": "030d096305f0658514dcc024075be11338a66e559b83df1731f634b449f0e06b",
+      "sha256": "4ad21137379b8b2916a8c60cb39220e4b5391600c270fb47d2f483c402563191"
     },
     {
       "id": "final_descent_fa",
@@ -121,7 +148,10 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "medium"
+      "effect": "medium",
+      "speech_key": "74f7884066305423bf9082aaafaa81772c9f65ac41df89c105f84ce1772b6f02",
+      "processing_key": "3f1a5552dc3541bec78bde027f53ef8beeb40f33aa0743b96facc21a7ee228cd",
+      "sha256": "f5f0496f3c5748b3d8444546dddceb9be33e7f1460e6913990c3ee8bad5d29a8"
     },
     {
       "id": "prepare_for_landing_fa",
@@ -133,7 +163,10 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "medium"
+      "effect": "medium",
+      "speech_key": "bdc075b29009290799a09f31d60ae606e927c8ff15ea79b3bfc16a9f03249260",
+      "processing_key": "8e295faafe6a556124c6300cda6b3a049e0fb7fc1427415f0a4e427178861d34",
+      "sha256": "0d7ea4807e3925c4d000c60549d7b5b06a7172a7d4cc2502abd0adb8d9863e9f"
     },
     {
       "id": "landing_crosscheck_crew",
@@ -145,7 +178,10 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "medium"
+      "effect": "medium",
+      "speech_key": "68258c933a8777ffcaf07b2df0f9e1e4876e3cfca18a7fc24dbc6b34dda0decb",
+      "processing_key": "15d7129b2f465f17bc254652cb8c6c65ef79229db46fc9dfed4723accd61c5c3",
+      "sha256": "ded42a16303786f32e5e0f5d61bf35d64488d0b8a781dac900d44257d296e2a8"
     },
     {
       "id": "landing_crosscheck_ack",
@@ -157,7 +193,10 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "medium"
+      "effect": "medium",
+      "speech_key": "e2463a43cebd3673d467644262f2c31193a358896a21a54bc5459712659edae1",
+      "processing_key": "0917758c8ca40b1e9605319f6698ea2f65c13a7838eba749f3be0a187b02daec",
+      "sha256": "88c6161951a561d5447195c59f57ce196a18003104868ded7cbf44a042e56592"
     },
     {
       "id": "arrival_welcome_captain",
@@ -169,7 +208,10 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "medium"
+      "effect": "medium",
+      "speech_key": "1ae6009f72cb3e49b3f3218a39b89843c1362682584868713a170b4feb905828",
+      "processing_key": "11a73c21727444a58c0e46a99a91c69e1622d5c27644ee3f088a242d6c2c3320",
+      "sha256": "247aed07b88adb43b16cbe745b4d9970ec90adaf5902d22817b0509e857c1f53"
     },
     {
       "id": "arrival_welcome_fa",
@@ -181,7 +223,10 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "medium"
+      "effect": "medium",
+      "speech_key": "97f91b9d8b11791efbca1fdb6785710d2a72388b0a00d9756c4625a79390cf85",
+      "processing_key": "4ff0fcfd33da31be26a19229e3c9b8bbaa0756fe5f5c95ed277bd521cfcd13b4",
+      "sha256": "b6100ced15b4e446423cfdbb9e8f26df51d474a224d89430e3f315dfc84b0938"
     },
     {
       "id": "deboarding_fa",
@@ -193,7 +238,10 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "medium"
+      "effect": "medium",
+      "speech_key": "507659c4ceddf3b54c61d7e302434af560b0b74b10f84b809fee16c4868fdebc",
+      "processing_key": "c3c685598bf4bb2662ce6e334a3585fe618bf8288c6949a5337b23e4e4e6bae0",
+      "sha256": "c50c3ce83ee92336cefaa8ba36e69ed9c8a0480a92dc4e9ebc77fcbcfa915b9b"
     }
   ]
 }
