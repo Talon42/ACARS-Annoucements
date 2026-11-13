@@ -1,0 +1,73 @@
+name: Publish Final Audio Release
+
+# Manual-only: uses committed MP3s, never regenerates speech.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: acars-audio-pipeline
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Tag and publish finalized MP3s
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Require main branch
+        shell: bash
+        run: |
+          if [[ "$GITHUB_REF" != "refs/heads/main" ]]; then
+            echo "Select the main branch before publishing a final audio release." >&2
+            exit 1
+          fi
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+          fetch-tags: true
+      - name: Load latest version tags
+        run: git fetch --force --tags origin
+      - name: Package committed MP3s and choose next version
+        id: bundle
+        run: python tools/release_audio.py
+      - name: Verify main has not moved since checkout
+        shell: bash
+        run: |
+          snapshot="$(git rev-parse HEAD)"
+          remote="$(git ls-remote origin refs/heads/main | cut -f1)"
+          if [[ "$snapshot" != "$remote" ]]; then
+            echo "main changed during release preparation. Rerun this workflow to use the latest /audio snapshot." >&2
+            exit 1
+          fi
+      - name: Create version tag and GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ steps.bundle.outputs.tag }}
+          ZIP: ${{ steps.bundle.outputs.archive }}
+          COUNT: ${{ steps.bundle.outputs.count }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          snapshot="$(git rev-parse HEAD)"
+          # Do not overwrite an existing tag, release, or asset.
+          if git ls-remote --tags origin "refs/tags/$TAG" | grep -q .; then
+            echo "Tag $TAG already exists. Retry after checking for concurrent releases." >&2
+            exit 1
+          fi
+          gh release create "$TAG" "$ZIP" \
+            --target "$snapshot" \
+            --title "ACARS Announcements $TAG" \
+            --notes "Finalized MP3-only audio pack from commit $snapshot. Contains $COUNT files copied from the committed /audio folder. No audio was regenerated during this release."
+          {
+            echo "## Audio release published"
+            echo ""
+            echo "- Version: $TAG"
+            echo "- Committed audio snapshot: $snapshot"
+            echo "- MP3s: $COUNT"
+            echo "- ZIP includes MP3 files only (flat layout, no manifest)"
+            echo "- [Open release](https://github.com/$GITHUB_REPOSITORY/releases/tag/$TAG)"
+          } >> "$GITHUB_STEP_SUMMARY"
