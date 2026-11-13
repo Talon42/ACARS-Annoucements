@@ -4,12 +4,15 @@ Generate 16 reusable cabin-crew and flight-deck MP3 announcements with **Kokoro*
 
 ## Generate and review audio
 
-1. Edit [templates.json](templates.json) for announcements and [config.json](config.json) for voices, speed, and PA effects.
-2. Commit changes on **kokoro** or **main**, or run [Generate ACARS Audio](https://github.com/Talon42/ACARS-Annoucements/actions/workflows/generate-audio.yml) with the correct branch selected.
-3. After the action succeeds, listen to the MP3s in [audio/](audio/). It also commits the manifest and [clean speech cache](speech-cache/) to that branch. The final audio folder is replaced, including removal of obsolete filenames.
-4. Repeat as needed. Unchanged speech is reused automatically.
+Use the **kokoro** branch for the current Kokoro version. Keep your edits and generation runs on the same branch.
 
-Generation creates MP3s and a manifest only; ZIP files are created only by the release workflow. Pull-request runs validate and generate audio without committing files. README-only edits do not trigger generation.
+1. **Edit the announcements in [templates.json](templates.json).** Each entry is one recording. Change `text` for the spoken words and `speaker` for who says them. Use `title` for the readable name and `filename` for the MP3 name; keep an existing `id` unchanged. Leave `voice: null` and `audio: {}` to use the shared settings.
+2. **Choose how they sound in [config.json](config.json).** Set `tts_engine` to `kokoro` or `edge`, then choose each role's voice under that engine. Adjust `tts_defaults` for speed, pitch, and volume, and `audio.default_effect` for PA strength. These settings apply to every announcement unless it has an individual override.
+3. **Commit your changes and generate.** Editing templates or config starts [Generate ACARS Audio](https://github.com/Talon42/ACARS-Annoucements/actions/workflows/generate-audio.yml) automatically after committing. To run it again without edits, open that action, choose **Run workflow**, select your branch, and start it. Wait for the run to succeed.
+4. **Listen and adjust.** Open [audio/](audio/) on the same branch and listen to the MP3s. Change the scripts or sound settings and repeat as needed; unchanged speech is reused. You can also [preview voices](#preview-voices-before-generation) before choosing them.
+5. **Publish when ready.** Once the approved changes and generated audio are on **main**, run [Publish Final Audio Release](https://github.com/Talon42/ACARS-Annoucements/actions/workflows/publish-final-audio.yml) on **main** to create the downloadable MP3-only ZIP.
+
+Generation updates the MP3s, manifest, and clean speech cache on the selected branch. **Only a release creates a ZIP.** README-only edits do not trigger generation.
 
 ## Announcement fields: templates.json
 
