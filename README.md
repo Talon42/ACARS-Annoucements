@@ -9,7 +9,7 @@ Generate 16 reusable cabin-crew and flight-deck MP3 announcements with **Kokoro*
 3. After the action succeeds, listen to the MP3s in [audio/](audio/). It also commits the manifest and [clean speech cache](speech-cache/) to that branch. The final audio folder is replaced, including removal of obsolete filenames.
 4. Repeat as needed. Unchanged speech is reused automatically.
 
-Each successful run uploads a 30-day preview artifact named **acars-announcements-audio**. Pull-request runs provide previews without committing generated files. README-only edits do not trigger generation.
+Generation creates MP3s and a manifest only; ZIP files are created only by the release workflow. Pull-request runs validate and generate audio without committing files. README-only edits do not trigger generation.
 
 ## Announcement fields: templates.json
 
@@ -131,6 +131,6 @@ python tools/generate_audio.py --validate
 python tools/generate_audio.py
 ```
 
-Local outputs: MP3s/manifest in `dist/audio/`, preview ZIP at `dist/ACARS-Announcements-audio.zip`, and clean speech in `speech-cache/`. The workflow copies final outputs into committed `audio/`. Validation checks inputs without downloading models or generating speech.
+Local outputs: MP3s/manifest in `dist/audio/` and clean speech in `speech-cache/`. The workflow copies final outputs into committed `audio/`. Validation checks inputs without downloading models or generating speech.
 
 For simulation use. Edge uses the unofficial edge-tts interface; service availability can change. Kokoro model weights are Apache-2.0 licensed and kokoro-onnx is MIT licensed.

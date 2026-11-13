@@ -9,7 +9,6 @@ import re
 import shutil
 import subprocess
 import sys
-import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -313,7 +312,7 @@ async def synthesize(plan, target, timeout_seconds, attempts, retry_delay_second
             await asyncio.sleep(retry_delay_seconds)
 
 
-def package(output_dir, plans, config):
+def write_manifest(output_dir, plans, config):
     manifest = {
         "schema_version": 1, "format": "mp3", "count": len(plans),
         "announcements": [manifest_entry(p, config, output_dir / p["filename"]) for p in plans],
@@ -321,12 +320,7 @@ def package(output_dir, plans, config):
     (output_dir / "manifest.json").write_text(
         json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8",
     )
-    archive = output_dir.parent / "ACARS-Announcements-audio.zip"
-    with zipfile.ZipFile(archive, "w", compression=zipfile.ZIP_DEFLATED) as z:
-        z.write(output_dir / "manifest.json", "manifest.json")
-        for plan in sorted(plans, key=lambda x: x["filename"]):
-            z.write(output_dir / plan["filename"], "audio/" + plan["filename"])
-    print(f"Packaged {len(plans)} recordings -> {archive}")
+    print(f"Wrote manifest for {len(plans)} recordings -> {output_dir}")
 
 
 async def main():
@@ -398,7 +392,7 @@ async def main():
             process_audio(raw, out / plan["filename"], config["audio"],
                           config["audio"]["effect_presets"][plan["effect"]])
             processed += 1
-        package(out, plans, config)
+        write_manifest(out, plans, config)
         # Keep only active clean speech, after the entire pack succeeds.
         active = {speech_key(plan) for plan in plans}
         for path in SPEECH_CACHE.iterdir():

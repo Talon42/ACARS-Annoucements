@@ -59,15 +59,8 @@ jobs:
           restore-keys: kokoro-models-${{ runner.os }}-
       - name: Validate announcement templates
         run: python tools/generate_audio.py --validate
-      - name: Generate and package audio
+      - name: Generate MP3s and manifest
         run: python tools/generate_audio.py
-      - name: Upload preview ZIP
-        uses: actions/upload-artifact@v7
-        with:
-          name: acars-announcements-audio
-          path: dist/ACARS-Announcements-audio.zip
-          if-no-files-found: error
-          retention-days: 30
       - name: Update repository /audio directory
         if: github.event_name != 'pull_request'
         shell: bash
