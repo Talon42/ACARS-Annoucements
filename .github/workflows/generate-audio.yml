@@ -15,29 +15,29 @@ on:
       - tools/generate_audio.py
       - .github/workflows/generate-audio.yml
   workflow_dispatch:
-    inputs:
-      release_tag:
-        description: "Optional release tag (example: v1.0.0); blank means artifact only"
-        required: false
-        type: string
 
 permissions:
   contents: write
 
+# Serialize generation with final-release publishing so releases cannot
+# accidentally capture a partially updated audio library.
 concurrency:
-  group: audio-build-${{ github.ref }}
-  cancel-in-progress: true
+  group: acars-audio-pipeline
+  cancel-in-progress: false
 
 jobs:
   generate:
-    name: Validate, synthesize, and package MP3s
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
+    name: Generate and commit MP3s
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@v7
+        with:
+          persist-credentials: true
       - uses: actions/setup-python@v7
         with:
-          python-version: "3.12"
+          python-version: '3.12'
           cache: pip
           cache-dependency-path: requirements.txt
       - name: Install FFmpeg and Edge TTS
@@ -49,29 +49,30 @@ jobs:
         run: python tools/generate_audio.py --validate
       - name: Generate and package audio
         run: python tools/generate_audio.py
-      - name: Upload downloadable audio ZIP
+      - name: Upload preview ZIP
         uses: actions/upload-artifact@v7
         with:
           name: acars-announcements-audio
           path: dist/ACARS-Announcements-audio.zip
           if-no-files-found: error
           retention-days: 30
-      - name: Publish versioned GitHub Release
-        if: github.event_name == 'workflow_dispatch' && inputs.release_tag != ''
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RELEASE_TAG: ${{ inputs.release_tag }}
+      - name: Update repository /audio directory
+        if: github.event_name != 'pull_request'
+        shell: bash
         run: |
-          if [[ ! "$RELEASE_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            echo "Release tag must look like v1.0.0" >&2
-            exit 1
+          set -euo pipefail
+          # /audio is fully managed by the generator, including its manifest.
+          rm -rf audio
+          cp -a dist/audio audio
+          test -s audio/manifest.json
+          test "$(find audio -maxdepth 1 -type f -iname '*.mp3' | wc -l)" -gt 0
+          git add --all -- audio
+          if git diff --cached --quiet; then
+            echo 'Generated MP3s are unchanged; no commit required.'
+            exit 0
           fi
-          archive="dist/ACARS-Announcements-audio.zip"
-          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
-            gh release upload "$RELEASE_TAG" "$archive" --clobber
-          else
-            gh release create "$RELEASE_TAG" "$archive" \
-              --target "$GITHUB_SHA" \
-              --title "ACARS Announcements $RELEASE_TAG" \
-              --notes "Generated Edge neural voice announcement pack, including manifest.json."
-          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Update generated ACARS announcement audio'
+          # Deliberately do not force-push or rebase a potentially stale build.
+          git push origin HEAD:main
