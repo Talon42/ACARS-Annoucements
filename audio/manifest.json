@@ -10,7 +10,7 @@
       "speaker": "flight_attendant",
       "channel": "passenger_pa",
       "voice": "en-US-JennyNeural",
-      "rate": "+0%",
+      "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
       "effect": "low"
@@ -22,7 +22,7 @@
       "speaker": "captain",
       "channel": "passenger_pa",
       "voice": "en-US-GuyNeural",
-      "rate": "+0%",
+      "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
       "effect": "low"
@@ -34,7 +34,7 @@
       "speaker": "flight_attendant",
       "channel": "passenger_pa",
       "voice": "en-US-JennyNeural",
-      "rate": "+0%",
+      "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
       "effect": "low"
@@ -46,7 +46,7 @@
       "speaker": "flight_attendant",
       "channel": "passenger_pa",
       "voice": "en-US-JennyNeural",
-      "rate": "+0%",
+      "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
       "effect": "low"
@@ -58,7 +58,7 @@
       "speaker": "captain",
       "channel": "crew_interphone",
       "voice": "en-US-GuyNeural",
-      "rate": "+0%",
+      "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
       "effect": "medium"
@@ -70,7 +70,7 @@
       "speaker": "captain",
       "channel": "passenger_pa",
       "voice": "en-US-GuyNeural",
-      "rate": "+0%",
+      "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
       "effect": "low"
@@ -82,7 +82,7 @@
       "speaker": "flight_attendant",
       "channel": "passenger_pa",
       "voice": "en-US-JennyNeural",
-      "rate": "+0%",
+      "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
       "effect": "low"
@@ -94,7 +94,7 @@
       "speaker": "captain",
       "channel": "passenger_pa",
       "voice": "en-US-GuyNeural",
-      "rate": "+0%",
+      "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
       "effect": "low"
@@ -106,7 +106,7 @@
       "speaker": "captain",
       "channel": "passenger_pa",
       "voice": "en-US-GuyNeural",
-      "rate": "+0%",
+      "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
       "effect": "low"
@@ -118,7 +118,7 @@
       "speaker": "flight_attendant",
       "channel": "passenger_pa",
       "voice": "en-US-JennyNeural",
-      "rate": "+0%",
+      "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
       "effect": "low"
@@ -130,7 +130,7 @@
       "speaker": "flight_attendant",
       "channel": "passenger_pa",
       "voice": "en-US-JennyNeural",
-      "rate": "+0%",
+      "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
       "effect": "low"
@@ -142,7 +142,7 @@
       "speaker": "flight_attendant",
       "channel": "crew_interphone",
       "voice": "en-US-JennyNeural",
-      "rate": "+0%",
+      "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
       "effect": "medium"
@@ -154,7 +154,7 @@
       "speaker": "flight_attendant",
       "channel": "crew_interphone",
       "voice": "en-US-JennyNeural",
-      "rate": "+0%",
+      "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
       "effect": "medium"
@@ -166,7 +166,7 @@
       "speaker": "captain",
       "channel": "passenger_pa",
       "voice": "en-US-GuyNeural",
-      "rate": "+0%",
+      "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
       "effect": "low"
@@ -178,7 +178,7 @@
       "speaker": "flight_attendant",
       "channel": "passenger_pa",
       "voice": "en-US-JennyNeural",
-      "rate": "+0%",
+      "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
       "effect": "low"
@@ -190,7 +190,7 @@
       "speaker": "flight_attendant",
       "channel": "passenger_pa",
       "voice": "en-US-JennyNeural",
-      "rate": "+0%",
+      "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
       "effect": "low"
