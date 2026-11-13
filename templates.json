@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "description": "Original ACARS cabin announcements converted to structured speech templates. Only text is spoken.",
+  "description": "Reusable, generic ACARS cabin and flight-deck announcement templates. Every announcement is static and flight-independent. Only text is spoken.",
   "voice_roles": {
     "flight_attendant": {
       "voice": "en-US-JennyNeural",
@@ -13,65 +13,7 @@
       "pitch": "+0Hz"
     }
   },
-  "variables": {
-    "time_of_day": {
-      "description": "Spoken time of day: morning, afternoon, or evening."
-    },
-    "airline_name": {
-      "description": "Airline name as it should be spoken."
-    },
-    "flight_number": {
-      "description": "Flight number as it should be spoken."
-    },
-    "destination": {
-      "description": "Destination name as it should be spoken."
-    },
-    "captain_name": {
-      "description": "Captain's name."
-    },
-    "flight_time": {
-      "description": "Approximate flight duration in spoken form."
-    },
-    "cruising_altitude": {
-      "description": "Cruising altitude in feet in spoken form."
-    },
-    "weather_description": {
-      "description": "Brief weather description appropriate to the announcement."
-    },
-    "arrival_time": {
-      "description": "Expected arrival time in spoken form."
-    },
-    "emergency_exit_count": {
-      "description": "Aircraft-specific number of emergency exits."
-    },
-    "emergency_exit_locations": {
-      "description": "Aircraft-specific emergency exit locations, in spoken form."
-    },
-    "life_vest_location": {
-      "description": "Aircraft-specific life-vest location, in spoken form."
-    },
-    "geographic_location": {
-      "description": "Current geographic location; source says to use this only if interesting and known."
-    },
-    "remaining_flight_time": {
-      "description": "Approximate time remaining in spoken form."
-    },
-    "weather_update": {
-      "description": "Brief enroute weather update."
-    },
-    "temperature": {
-      "description": "Temperature with units in spoken form."
-    },
-    "local_time": {
-      "description": "Arrival-local time in spoken form."
-    },
-    "gate_number": {
-      "description": "Arrival gate number."
-    },
-    "farewell_time": {
-      "description": "Spoken 'day' or 'evening'."
-    }
-  },
+  "variables": {},
   "announcements": [
     {
       "id": "boarding_welcome_fa",
@@ -79,14 +21,8 @@
       "title": "Boarding Complete / Welcome Aboard",
       "speaker": "flight_attendant",
       "channel": "passenger_pa",
-      "text": "Good {{time_of_day}} ladies and gentlemen. On behalf of {{airline_name}} and our entire crew, we'd like to welcome you aboard flight {{flight_number}} with service to {{destination}}. We are currently finishing up the boarding process, and our captain {{captain_name}} will be making an announcement shortly with more details about our flight. Please ensure all carry-on luggage is stowed securely in the overhead compartments or under the seat in front of you. For those seated in exit rows, please review the safety card and be familiar with your responsibilities. Thank you for choosing to fly with us today.",
-      "variables": [
-        "time_of_day",
-        "airline_name",
-        "flight_number",
-        "destination",
-        "captain_name"
-      ]
+      "text": "Ladies and gentlemen, welcome aboard. On behalf of our entire crew, we're pleased to have you with us today. We are currently finishing up the boarding process, and our captain will be making an announcement shortly. Please ensure all carry-on luggage is stowed securely in the overhead compartments or under the seat in front of you. For those seated in exit rows, please review the safety card and be familiar with your responsibilities. Thank you for choosing to fly with us today.",
+      "variables": []
     },
     {
       "id": "boarding_welcome_captain",
@@ -94,18 +30,8 @@
       "title": "Boarding Complete / Welcome Aboard",
       "speaker": "captain",
       "channel": "passenger_pa",
-      "text": "Good {{time_of_day}} ladies and gentlemen, this is your Captain, {{captain_name}}, speaking from the flight deck. On behalf of the entire crew, I'd like to extend a warm welcome aboard {{airline_name}} flight {{flight_number}} to {{destination}}. We have a flight time of approximately {{flight_time}} and will be cruising at an altitude of {{cruising_altitude}} feet. The weather en route is expected to be {{weather_description}}. We anticipate an on-time arrival in {{destination}} at approximately {{arrival_time}}. Please make yourselves comfortable, and our flight attendants will be coming through the cabin to ensure everyone is ready for departure. We thank you for flying with us and look forward to a smooth journey.",
-      "variables": [
-        "time_of_day",
-        "captain_name",
-        "airline_name",
-        "flight_number",
-        "destination",
-        "flight_time",
-        "cruising_altitude",
-        "weather_description",
-        "arrival_time"
-      ]
+      "text": "Ladies and gentlemen, this is your captain speaking from the flight deck. On behalf of the entire crew, I'd like to extend a warm welcome aboard. We're preparing for departure and will keep you informed of any important updates throughout the flight. Please make yourselves comfortable while our flight attendants complete their final cabin checks. We thank you for flying with us and look forward to a pleasant journey.",
+      "variables": []
     },
     {
       "id": "security_briefing_fa",
@@ -113,12 +39,8 @@
       "title": "Security Briefing",
       "speaker": "flight_attendant",
       "channel": "passenger_pa",
-      "text": "Ladies and gentlemen, your safety is our top priority. Please direct your attention to the flight attendants for a brief demonstration of the safety features of this aircraft. Ensure your seatbelt is securely fastened by inserting the metal fitting into the buckle and tightening the strap. To release, lift the top of the buckle. Please keep your seatbelt fastened low and tight across your hips whenever you are seated, as we may encounter unexpected turbulence. There are {{emergency_exit_count}} emergency exits on this aircraft, located {{emergency_exit_locations}}. Please take a moment to locate the nearest exit to you. Note that the closest exit may be behind you. In the unlikely event of a loss of cabin pressure, oxygen masks will deploy from the compartment above your seat. Pull a mask towards you to start the flow of oxygen, place it over your nose and mouth, and secure it with the elastic strap. If you are traveling with a child or someone needing assistance, please secure your own mask first before assisting others. Life vests are located {{life_vest_location}}. Please refer to the safety information card in your seat pocket for instructions on how to use it. Federal Aviation Regulations require compliance with all lighted signs, posted placards, and crew instructions. Smoking, including e-cigarettes, is prohibited on this aircraft, including in the lavatories. Tampering with, disabling, or destroying lavatory smoke detectors is a federal offense. Please review the safety information card in your seat pocket for more detailed information specific to this aircraft type. If you have any questions, please don't hesitate to ask a flight attendant. Thank you for your attention.",
-      "variables": [
-        "emergency_exit_count",
-        "emergency_exit_locations",
-        "life_vest_location"
-      ]
+      "text": "Ladies and gentlemen, your safety is our top priority. Please direct your attention to the flight attendants for a brief demonstration of the safety features of this aircraft. Ensure your seatbelt is securely fastened by inserting the metal fitting into the buckle and tightening the strap. To release, lift the top of the buckle. Please keep your seatbelt fastened low and tight across your hips whenever you are seated, as we may encounter unexpected turbulence. Please take a moment to locate the nearest emergency exit, keeping in mind that the closest exit may be behind you. In the unlikely event of a loss of cabin pressure, oxygen masks may deploy from above your seat. Follow the crew's instructions for using your mask, and secure your own mask before assisting anyone else. Information about emergency exits, flotation equipment, and other aircraft-specific safety features is provided on the safety information card near your seat. Federal Aviation Regulations require compliance with all lighted signs, posted placards, and crew instructions. Smoking, including e-cigarettes, is prohibited on this aircraft, including in the lavatories. Tampering with, disabling, or destroying lavatory smoke detectors is a federal offense. Please review the safety information card and follow the flight attendants' demonstration. If you have any questions, please don't hesitate to ask a flight attendant. Thank you for your attention.",
+      "variables": []
     },
     {
       "id": "prepare_for_departure_fa",
@@ -164,14 +86,8 @@
       "title": "Message from Captain",
       "speaker": "captain",
       "channel": "passenger_pa",
-      "text": "Ladies and gentlemen, this is the Captain speaking. Just wanted to give you a brief update on our flight progress. We are currently cruising smoothly at {{cruising_altitude}} feet over {{geographic_location}}. We have approximately {{remaining_flight_time}} remaining until our arrival in {{destination}}. The weather ahead is looking {{weather_update}}. We'll keep you informed of any significant changes. In the meantime, sit back, relax, and enjoy the rest of your flight.",
-      "variables": [
-        "cruising_altitude",
-        "geographic_location",
-        "remaining_flight_time",
-        "destination",
-        "weather_update"
-      ]
+      "text": "Ladies and gentlemen, this is the Captain speaking with a brief update from the flight deck. We are continuing along our route, and everything is proceeding as planned. We'll keep you informed of any significant changes as the flight continues. In the meantime, sit back, relax, and enjoy the rest of your flight.",
+      "variables": []
     },
     {
       "id": "final_descent_captain",
@@ -179,13 +95,8 @@
       "title": "Final Descent into Destination",
       "speaker": "captain",
       "channel": "passenger_pa",
-      "text": "Ladies and gentlemen, this is the Captain. We have now begun our final descent into {{destination}}. We expect to land at approximately {{arrival_time}}. The weather in {{destination}} is currently {{weather_description}} with a temperature of {{temperature}}. The fasten seatbelt sign has been turned on and must remain fastened for your safety until we are parked at the gate and the sign is turned off. The flight attendants will be coming through the cabin to prepare for arrival. Thank you.",
-      "variables": [
-        "destination",
-        "arrival_time",
-        "weather_description",
-        "temperature"
-      ]
+      "text": "Ladies and gentlemen, this is your captain. We have now begun our descent. Please return to your seats and ensure your seatbelts are fastened. Our flight attendants will be coming through the cabin to prepare for arrival. For your safety, please remain seated with your seatbelt fastened until we are parked at the gate and the fasten seatbelt sign has been turned off. Thank you.",
+      "variables": []
     },
     {
       "id": "final_descent_fa",
@@ -193,10 +104,8 @@
       "title": "Final Descent into Destination",
       "speaker": "flight_attendant",
       "channel": "passenger_pa",
-      "text": "Ladies and gentlemen, as the Captain announced, we have started our descent into {{destination}}. Please ensure your seatbelts are securely fastened. We ask that you return your seatbacks to their full upright position, stow your tray tables, and ensure all carry-on items are secured. Please also turn off and stow all portable electronic devices larger than a cell phone at this time. Smaller devices should remain in airplane mode. Thank you.",
-      "variables": [
-        "destination"
-      ]
+      "text": "Ladies and gentlemen, as the Captain announced, we have started our descent. Please ensure your seatbelts are securely fastened. We ask that you return your seatbacks to their full upright position, stow your tray tables, and ensure all carry-on items are secured. Please also turn off and stow all portable electronic devices larger than a cell phone at this time. Smaller devices should remain in airplane mode. Thank you.",
+      "variables": []
     },
     {
       "id": "prepare_for_landing_fa",
@@ -204,10 +113,8 @@
       "title": "Prepare for Landing / Cross Check",
       "speaker": "flight_attendant",
       "channel": "passenger_pa",
-      "text": "Ladies and gentlemen, we are now on our final approach to {{destination}}. Please ensure your seatbelts are securely fastened, your seatbacks are upright, and your tray tables are stowed. All carry-on items should be stowed under the seat in front of you or in the overhead bin. Please also ensure the area around your feet is clear.",
-      "variables": [
-        "destination"
-      ]
+      "text": "Ladies and gentlemen, we are now on our final approach. Please ensure your seatbelts are securely fastened, your seatbacks are upright, and your tray tables are stowed. All carry-on items should be stowed under the seat in front of you or in the overhead bin. Please also ensure the area around your feet is clear.",
+      "variables": []
     },
     {
       "id": "landing_crosscheck_crew",
@@ -235,13 +142,8 @@
       "title": "Welcome to Destination",
       "speaker": "captain",
       "channel": "passenger_pa",
-      "text": "Ladies and gentlemen, on behalf of {{airline_name}} and the entire crew, welcome to {{destination}}. The local time is {{local_time}}. We have arrived at Gate {{gate_number}}. For your safety, please remain seated with your seatbelt fastened until the Captain has turned off the fasten seatbelt sign. Please be careful when opening overhead compartments as items may have shifted during the flight. We hope you enjoyed your flight with us today.",
-      "variables": [
-        "airline_name",
-        "destination",
-        "local_time",
-        "gate_number"
-      ]
+      "text": "Ladies and gentlemen, we've arrived. On behalf of the entire crew, thank you for flying with us today. For your safety, please remain seated with your seatbelt fastened until we are parked at the gate and the fasten seatbelt sign has been turned off. Please be careful when opening overhead compartments as items may have shifted during the flight. We hope you enjoyed your flight with us.",
+      "variables": []
     },
     {
       "id": "arrival_welcome_fa",
@@ -249,11 +151,8 @@
       "title": "Welcome to Destination",
       "speaker": "flight_attendant",
       "channel": "passenger_pa",
-      "text": "Ladies and gentlemen, welcome to {{destination}}. Please remain seated with your seatbelt fastened until the Captain has turned off the fasten seatbelt sign. When deplaning, please take all of your personal belongings with you. Be cautious when opening the overhead bins, as items may have moved. We appreciate you flying with {{airline_name}} and hope to see you again soon.",
-      "variables": [
-        "destination",
-        "airline_name"
-      ]
+      "text": "Ladies and gentlemen, welcome. Please remain seated with your seatbelt fastened until the Captain has turned off the fasten seatbelt sign. When deplaning, please take all of your personal belongings with you. Be cautious when opening the overhead bins, as items may have moved. We appreciate you flying with us and hope to see you again soon.",
+      "variables": []
     },
     {
       "id": "deboarding_fa",
@@ -261,12 +160,8 @@
       "title": "Deboarding Message",
       "speaker": "flight_attendant",
       "channel": "passenger_pa",
-      "text": "Ladies and gentlemen, we have arrived at the gate and the Captain has turned off the fasten seatbelt sign. You may now carefully stand up and gather your belongings. Please use caution when opening the overhead compartments. Please allow those seated in front of you to deplane first. Please ensure you have all your personal items with you before leaving the aircraft. On behalf of {{airline_name}} and the crew, we thank you for flying with us and wish you a wonderful {{farewell_time}} in {{destination}} or at your final destination.",
-      "variables": [
-        "airline_name",
-        "farewell_time",
-        "destination"
-      ]
+      "text": "Ladies and gentlemen, we have arrived at the gate and the Captain has turned off the fasten seatbelt sign. You may now carefully stand up and gather your belongings. Please use caution when opening the overhead compartments. Please allow those seated in front of you to deplane first. Please ensure you have all your personal items with you before leaving the aircraft. On behalf of the entire crew, we thank you for flying with us and wish you safe travels.",
+      "variables": []
     }
   ]
 }
