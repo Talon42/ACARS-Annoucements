@@ -3,15 +3,15 @@
   "description": "Edit role voices, global delivery, channel presets, and FFmpeg effect strength here. Announcement-level overrides are in templates.json.",
   "roles": {
     "captain": {
-      "voice": "en-US-GuyNeural",
+      "voice": "en-US-AndrewNeural",
       "gender": "Male"
     },
     "copilot": {
-      "voice": "en-US-ChristopherNeural",
+      "voice": "en-US-BrianNeural",
       "gender": "Male"
     },
     "flight_attendant": {
-      "voice": "en-US-JennyNeural",
+      "voice": "en-US-EmmaNeural",
       "gender": "Female"
     }
   },
