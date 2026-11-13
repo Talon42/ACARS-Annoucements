@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "description": "Edit role voices, global delivery, channel presets, and FFmpeg effect strength here. Announcement-level overrides are in templates.json.",
+  "description": "Edit role voices, global delivery, and the unified PA effect here. Announcement-level overrides are in templates.json.",
   "roles": {
     "captain": {
       "voice": "en-US-AndrewNeural",
@@ -24,10 +24,6 @@
     "sample_rate_hz": 24000,
     "bitrate_kbps": 128,
     "default_effect": "medium",
-    "channel_effects": {
-      "passenger_pa": "medium",
-      "crew_interphone": "medium"
-    },
     "effect_presets": {
       "off": {
         "highpass_hz": 0,

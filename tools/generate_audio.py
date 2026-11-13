@@ -3,6 +3,7 @@
 
 import argparse
 import asyncio
+import hashlib
 import json
 import re
 import shutil
@@ -16,6 +17,8 @@ RATE_RE = re.compile(r"^[+-]\d{1,3}%$")
 PITCH_RE = re.compile(r"^[+-]\d{1,3}Hz$")
 FILENAME_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]*\.mp3$", re.IGNORECASE)
 UNRESOLVED_RE = re.compile(r"\{\{.*?\}\}|\[[^\]]+\]")
+SPEECH_CACHE = ROOT / "speech-cache"
+MP3_SAMPLE_RATES = {8000, 11025, 12000, 16000, 22050, 24000, 32000, 44100, 48000}
 
 
 def fail(message):
@@ -32,6 +35,13 @@ def resolve(config, template):
     tts = config["tts_defaults"]
     audio = config["audio"]
     presets = audio["effect_presets"]
+    if type(audio.get("sample_rate_hz")) is not int or audio["sample_rate_hz"] not in MP3_SAMPLE_RATES:
+        fail("audio.sample_rate_hz must be a supported MP3 sample rate")
+    if type(audio.get("bitrate_kbps")) is not int or audio["bitrate_kbps"] not in (64, 96, 128, 160, 192, 256, 320):
+        fail("audio.bitrate_kbps must be a supported MP3 bitrate")
+    if audio["sample_rate_hz"] < 32000 and audio["bitrate_kbps"] > 160:
+        fail("MP3 sample rates below 32000 Hz support at most 160 kbps")
+    known_voices = {v["short_name"] for v in load_json("voices.json")["voices"]}
     seen_ids, seen_files = set(), set()
     plans = []
     if template.get("schema_version") != 1 or config.get("schema_version") != 1:
@@ -64,6 +74,8 @@ def resolve(config, template):
         voice = item.get("voice") or roles[role]["voice"]
         if not isinstance(voice, str) or not re.fullmatch(r"[A-Za-z0-9-]+", voice):
             fail(f"{identifier}: invalid Edge voice name")
+        if voice not in known_voices:
+            fail(f"{identifier}: unknown voice {voice!r}; refresh the voice catalog if needed")
         overrides = item.get("audio") or {}
         if not isinstance(overrides, dict):
             fail(f"{identifier}: audio overrides must be an object")
@@ -74,7 +86,7 @@ def resolve(config, template):
             if not isinstance(settings[key], str) or not regex.fullmatch(settings[key]):
                 fail(f"{identifier}: invalid {key} {settings[key]!r}; expected e.g. '+5%' or '+0Hz'")
         channel = item.get("channel", "passenger_pa")
-        effect = overrides.get("effect", audio["channel_effects"].get(channel, audio["default_effect"]))
+        effect = overrides.get("effect", audio["default_effect"])
         if effect not in presets:
             fail(f"{identifier}: unknown effect {effect!r}; use {', '.join(presets)}")
         for key in ("highpass_hz", "lowpass_hz", "presence_hz", "presence_gain_db",
@@ -106,11 +118,55 @@ def resolve(config, template):
             "rate": settings["rate"], "pitch": settings["pitch"], "volume": settings["volume"],
             "effect": effect,
         })
-    if not isinstance(audio.get("sample_rate_hz"), int) or audio["sample_rate_hz"] < 8000:
-        fail("audio.sample_rate_hz must be an integer >= 8000")
-    if not isinstance(audio.get("bitrate_kbps"), int) or audio["bitrate_kbps"] not in (64, 96, 128, 160, 192, 256, 320):
-        fail("audio.bitrate_kbps must be a supported MP3 bitrate")
     return plans
+
+
+def fingerprint(value):
+    data = json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
+    return hashlib.sha256(data.encode("utf-8")).hexdigest()
+
+
+def file_hash(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def speech_key(plan):
+    # No effect, filename, role, or channel: only inputs that change spoken audio.
+    return fingerprint({"version": 1, **{k: plan[k] for k in ("text", "voice", "rate", "pitch", "volume")}})
+
+
+def processing_key(plan, config):
+    audio = config["audio"]
+    return fingerprint({
+        "speech_key": speech_key(plan),
+        "preset": audio["effect_presets"][plan["effect"]],
+        "sample_rate_hz": audio["sample_rate_hz"], "bitrate_kbps": audio["bitrate_kbps"],
+        # Code changes must not silently reuse outputs from an older processor.
+        "generator_sha256": file_hash(Path(__file__)),
+    })
+
+
+def manifest_entry(plan, config, path):
+    return {
+        **{k: value for k, value in plan.items() if k != "text"},
+        "speech_key": speech_key(plan), "processing_key": processing_key(plan, config),
+        "sha256": file_hash(path),
+    }
+
+
+def cached_speech(key):
+    path = SPEECH_CACHE / (key + ".mp3")
+    checksum = path.with_suffix(".sha256")
+    return (path.is_file() and path.stat().st_size >= 512 and checksum.is_file()
+            and checksum.read_text(encoding="utf-8").strip() == file_hash(path))
+
+
+def previous_recordings():
+    try:
+        manifest = load_json("audio/manifest.json")
+        return {entry["id"]: entry for entry in manifest["announcements"]}
+    except (OSError, ValueError, KeyError, TypeError):
+        return {}
 
 
 def process_audio(raw, output, audio, preset):
@@ -219,10 +275,10 @@ async def synthesize(plan, target, timeout_seconds, attempts, retry_delay_second
             await asyncio.sleep(retry_delay_seconds)
 
 
-def package(output_dir, plans):
+def package(output_dir, plans, config):
     manifest = {
         "schema_version": 1, "format": "mp3", "count": len(plans),
-        "announcements": [{k: value for k, value in p.items() if k != "text"} for p in plans],
+        "announcements": [manifest_entry(p, config, output_dir / p["filename"]) for p in plans],
     }
     (output_dir / "manifest.json").write_text(
         json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8",
@@ -255,21 +311,49 @@ async def main():
         fail("Unsafe output directory")
     shutil.rmtree(out, ignore_errors=True)
     out.mkdir(parents=True)
-    raw_dir = out.parent / ".tts-raw"
-    shutil.rmtree(raw_dir, ignore_errors=True)
-    raw_dir.mkdir(parents=True)
-    try:
-        for index, plan in enumerate(plans, 1):
-            print(f"[{index}/{len(plans)}] {plan['id']} | {plan['voice']} | {plan['effect']}", flush=True)
-            raw = raw_dir / (plan["id"] + ".mp3")
-            await synthesize(
-                plan, raw, timeout_seconds, attempts, retry_delay_seconds
-            )
-            process_audio(raw, out / plan["filename"], config["audio"],
-                          config["audio"]["effect_presets"][plan["effect"]])
-        package(out, plans)
-    finally:
-        shutil.rmtree(raw_dir, ignore_errors=True)
+    SPEECH_CACHE.mkdir(parents=True, exist_ok=True)
+    previous = previous_recordings()
+    reused = processed = generated = 0
+    for index, plan in enumerate(plans, 1):
+        print(f"[{index}/{len(plans)}] {plan['id']} | {plan['voice']} | {plan['effect']}", flush=True)
+        key = speech_key(plan)
+        raw = SPEECH_CACHE / (key + ".mp3")
+        old = previous.get(plan["id"], {})
+        # Resolve the old path only from a validated basename.
+        old_name = old.get("filename", "")
+        old_path = ROOT / "audio" / old_name
+        if (FILENAME_RE.fullmatch(old_name) and ".." not in old_name
+                and old_path.is_file() and old_path.resolve() != (out / plan["filename"]).resolve()
+                and old.get("processing_key") == processing_key(plan, config)
+                and old.get("sha256") == file_hash(old_path) and cached_speech(key)):
+            shutil.copyfile(old_path, out / plan["filename"])
+            reused += 1
+            print("  Reused unchanged MP3", flush=True)
+            continue
+        if not cached_speech(key):
+            temporary = raw.with_suffix(".tmp.mp3")
+            try:
+                await synthesize(
+                    plan, temporary, timeout_seconds, attempts, retry_delay_seconds
+                )
+                temporary.replace(raw)
+                raw.with_suffix(".sha256").write_text(file_hash(raw) + "\n", encoding="utf-8")
+            finally:
+                temporary.unlink(missing_ok=True)
+            generated += 1
+            print("  Generated clean speech", flush=True)
+        else:
+            print("  Reused clean speech; applying PA effect", flush=True)
+        process_audio(raw, out / plan["filename"], config["audio"],
+                      config["audio"]["effect_presets"][plan["effect"]])
+        processed += 1
+    package(out, plans, config)
+    # Keep only active clean speech, after the entire pack succeeds.
+    active = {speech_key(plan) for plan in plans}
+    for path in SPEECH_CACHE.iterdir():
+        if path.suffix in (".mp3", ".sha256") and path.stem not in active:
+            path.unlink()
+    print(f"Complete: {reused} unchanged MP3s, {generated} new speech recordings, {processed} processed MP3s")
 
 
 if __name__ == "__main__":

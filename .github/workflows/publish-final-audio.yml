@@ -29,6 +29,9 @@ jobs:
           ref: main
           fetch-depth: 0
           fetch-tags: true
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
       - name: Load latest version tags
         run: git fetch --force --tags origin
       - name: Package committed MP3s and choose next version

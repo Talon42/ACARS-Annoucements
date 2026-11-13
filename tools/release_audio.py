@@ -11,6 +11,8 @@ import sys
 import zipfile
 from pathlib import Path
 
+from generate_audio import load_json, manifest_entry, resolve
+
 ROOT = Path(__file__).resolve().parents[1]
 AUDIO = ROOT / "audio"
 SEMVER = re.compile(r"^v([0-9]+)\.([0-9]+)\.([0-9]+)$")
@@ -58,14 +60,20 @@ def collect_mp3s():
         )):
             fail(f"{path.name} does not appear to be a valid MP3")
     manifest_path = AUDIO / "manifest.json"
-    if manifest_path.is_file():
-        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-        entries = manifest.get("announcements")
-        if not isinstance(entries, list):
-            fail("audio/manifest.json contains no announcements list")
-        expected = {str(entry["filename"]).casefold() for entry in entries}
-        if expected != names or len(entries) != len(files):
-            fail("MP3s do not match audio/manifest.json. Rebuild or correct the audio folder.")
+    if not manifest_path.is_file():
+        fail("Missing audio/manifest.json. Run Generate ACARS Audio before releasing.")
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    config = load_json("config.json")
+    plans = resolve(config, load_json("templates.json"))
+    expected_names = {plan["filename"].casefold() for plan in plans}
+    if expected_names != names or len(plans) != len(files):
+        fail("MP3s do not match current templates. Run Generate ACARS Audio before releasing.")
+    expected_entries = [manifest_entry(plan, config, AUDIO / plan["filename"]) for plan in plans]
+    if (manifest.get("schema_version") != 1 or manifest.get("format") != "mp3"
+            or manifest.get("count") != len(plans)
+            or manifest.get("announcements") != expected_entries):
+        fail("Audio is stale or modified: scripts, voices, PA settings, generator, or MP3 checksums differ. "
+             "Run Generate ACARS Audio before releasing (unchanged speech is reused).")
     return files
 
 

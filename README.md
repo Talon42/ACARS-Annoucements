@@ -5,7 +5,7 @@ This repository builds reusable Edge TTS cabin-crew and flight-deck audio for AC
 ## Quick start
 
 1. Edit [templates.json](templates.json) to change scripts, filenames, or individual voices; edit [config.json](config.json) for role defaults, speed, volume, and radio/PA effects.
-2. Commit changes to main, or manually run [Generate ACARS Audio](../../actions/workflows/generate-audio.yml). It regenerates all recordings and **commits the MP3 files plus manifest.json to [/audio](audio/)**. Generated audio is also available as a temporary Actions artifact.
+2. Commit changes to main, or manually run [Generate ACARS Audio](../../actions/workflows/generate-audio.yml). It generates changed speech and reuses unchanged recordings and **commits the MP3 files plus manifest.json to [/audio](audio/)**. Generated audio is also available as a temporary Actions artifact.
 3. Open [/audio](audio/), listen to the MP3 files, and adjust settings and regenerate as many times as desired. Each successful run replaces the current /audio contents. Previous versions remain in Git history.
 4. When satisfied, open [Publish Final Audio Release](../../actions/workflows/publish-final-audio.yml), select **Run workflow** on **main**, and run it. This is the **only** workflow that publishes a release.
 5. The release workflow packages the currently committed MP3 files from /audio **without regenerating** them. It chooses the next version automatically (first v1.0.0, then v1.0.1, v1.0.2, etc.), creates the Git tag, and publishes the MP3-only ZIP under [Releases](../../releases).
@@ -17,8 +17,9 @@ This repository builds reusable Edge TTS cabin-crew and flight-deck audio for AC
 | File | Purpose |
 | --- | --- |
 | [/audio](audio/) | Committed generated MP3s and manifest.json; review these before releasing |
+| [/speech-cache](speech-cache/) | Clean speech keyed by text, voice, rate, pitch, and volume; reused across generations |
 | [templates.json](templates.json) | Announcement text, stable IDs, filenames, role and per-announcement overrides |
-| [config.json](config.json) | Role voice defaults, speaking rate, pitch/volume, MP3 settings, and effect presets |
+| [config.json](config.json) | Role voice defaults, speaking rate, pitch/volume, MP3 settings, and unified PA effect presets |
 | [VOICES.md](VOICES.md) | Browseable Edge voice names, gender and locale |
 | [voices.json](voices.json) | Machine-readable voice catalog |
 | [tools/generate_audio.py](tools/generate_audio.py) | Validates scripts, synthesizes MP3, applies FFmpeg effects, packages audio |
@@ -59,7 +60,7 @@ To customize *only* this recording, you can edit its filename, voice, and audio 
 - **id** stays stable for ACARS trigger mapping even if you change the filename.
 - **filename** must be a unique MP3 basename (no directories/slashes); you can name files as desired.
 - **voice: null** inherits the voice for that speaker from config.json; otherwise specify any valid Edge voice name.
-- **audio: {}** inherits rate/pitch/volume and the channel's default effect. Override any subset of them individually.
+- **audio: {}** inherits rate/pitch/volume and the unified default PA effect. Override any subset of them individually.
 - **speaker** can be captain (male default), copilot (male default), or flight_attendant (female default); other roles can be defined in config.json.
 - **channel** may be passenger_pa or crew_interphone; the latter is not intended for passenger playback.
 - **variables** must remain an empty array. This is a static, generic sound library. Dynamic placeholders are rejected by the generator.
@@ -70,9 +71,9 @@ To add a new announcement, duplicate an existing object, give it a unique **id**
 
 | Speaker | Edge voice | Gender |
 | --- | --- | --- |
-| captain | en-US-GuyNeural | Male |
-| copilot | en-US-ChristopherNeural | Male |
-| flight_attendant | en-US-JennyNeural | Female |
+| captain | en-US-AndrewNeural | Male |
+| copilot | en-US-BrianNeural | Male |
+| flight_attendant | en-US-EmmaNeural | Female |
 
 These are defaults in config.json, not mandatory choices. Each announcement can override **voice** independently.
 
@@ -82,7 +83,7 @@ Open [VOICES.md](VOICES.md) to browse the available voices. Use [Refresh Edge Vo
 
 In config.json, adjust **tts_defaults.rate** (e.g. -10% slower or +10% faster), **pitch** (e.g. +0Hz), and **volume** (e.g. +0%). These can be overridden in an individual announcement's audio object.
 
-The audio.channel_effects map selects a preset for passenger_pa or crew_interphone. Default presets are:
+The audio.default_effect setting selects one unified PA effect for both passenger_pa and crew_interphone. Channels remain metadata for ACARS routing; they do not select different processing. Available strength presets are:
 
 | Preset | Sound |
 | --- | --- |
@@ -95,9 +96,22 @@ Each preset in **audio.effect_presets** defines highpass_hz, lowpass_hz, crusher
 
 Output MP3 sample rate and bitrate are adjustable via **audio.sample_rate_hz** and **audio.bitrate_kbps**.
 
+## Selective generation and speech reuse
+
+Clean speech is cached by announcement text, resolved voice, rate, pitch, and volume, with a checksum for corruption detection. Successful workflow runs commit this cache alongside /audio, so it persists between runners.
+
+- An unchanged recording is copied byte-for-byte from committed /audio when its fingerprints and checksum match.
+- Changing only the PA effect, its strength/settings, sample rate, or bitrate reprocesses cached clean speech without contacting Edge.
+- Changing a role voice regenerates only announcements that resolve to that voice; explicit voice overrides are respected.
+- Changing text regenerates only that announcement. Changing rate/pitch/volume regenerates only recordings whose resolved values changed.
+- Renaming an output or changing event/channel metadata does not require new speech.
+- Missing or damaged clean speech is regenerated with the existing timeout/retry policy. Unused cache entries are removed after a successful build.
+
+The first run after upgrading must generate clean speech once: older processed MP3s cannot be used as clean originals and their manifests lack source fingerprints. A failed run never replaces committed /audio. Release validation does not require the clean cache or call Edge; it checks the finished pack against current inputs.
+
 ## Generated audio, preview artifacts, and finalized releases
 
-Every successful generation on main commits the current recordings to **/audio**:
+Every successful generation on main commits the current recordings to **/audio** and reusable clean speech to **/speech-cache**:
 
     audio/
       boarding_welcome_fa.mp3
@@ -106,7 +120,7 @@ Every successful generation on main commits the current recordings to **/audio**
       deboarding_fa.mp3
       manifest.json
 
-The manifest maps stable IDs to filenames, event, speaker, channel, voice, rate/pitch/volume, and effect. The generator fully replaces /audio each time (so removing or renaming templates also removes obsolete MP3s). As a safety measure, it will not force-push if main changed while audio was synthesizing.
+The manifest maps stable IDs to filenames, event, speaker, channel, voice, rate/pitch/volume, and effect. It also stores fingerprints of speech inputs and processing settings/code, plus a checksum of each final MP3. Release validation compares these with the current sources and files, rejecting stale or modified audio even when filenames match. The workflow fully replaces /audio each time (so removing or renaming templates also removes obsolete MP3s). As a safety measure, it will not force-push if main changed while audio was synthesizing.
 
 Every generation also uploads an optional 30-day preview artifact named **acars-announcements-audio**, containing a ZIP with manifest.json and audio/MP3 files. **A generation run never publishes a GitHub Release.**
 
@@ -126,7 +140,7 @@ Requires Python 3.12+, FFmpeg with MP3 encoding support, internet access to Edge
     python tools/generate_audio.py --validate
     python tools/generate_audio.py
 
-Validation detects duplicate IDs, duplicate filenames, invalid placeholders, missing speaker roles, unknown effects, invalid voice/audio settings, and unsafe filenames. Synthesis failures fail the action instead of uploading a partial pack. When run locally, generated files remain under dist/; only the GitHub workflow copies them into /audio and commits them.
+Validation detects duplicate IDs, duplicate filenames, invalid placeholders, missing speaker roles, unknown effects, voices absent from voices.json, unsupported MP3 sample rates/bitrates, invalid voice/audio settings, and unsafe filenames. Voice checking uses the committed catalog without a network call; refresh the catalog if a newly available voice is missing. Synthesis failures fail the action instead of uploading a partial pack. When run locally, generated files remain under dist/; only the GitHub workflow copies them into /audio and commits them together with /speech-cache.
 
 ## Limitations
 
