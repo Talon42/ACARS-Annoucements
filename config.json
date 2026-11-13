@@ -16,7 +16,7 @@
     }
   },
   "tts_defaults": {
-    "rate": "+0%",
+    "rate": "+20%",
     "pitch": "+0Hz",
     "volume": "+0%"
   },
