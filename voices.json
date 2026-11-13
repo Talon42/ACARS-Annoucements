@@ -1,9 +1,14 @@
 {
   "schema_version": 1,
-  "source": "Microsoft Edge online voices via edge-tts (unofficial service)",
-  "count": 322,
+  "source": "Microsoft Edge via edge-tts; Kokoro via the configured upstream ONNX voice pack",
+  "count": 376,
+  "counts_by_engine": {
+    "edge": 322,
+    "kokoro": 54
+  },
   "voices": [
     {
+      "engine": "edge",
       "short_name": "af-ZA-AdriNeural",
       "gender": "Female",
       "locale": "af-ZA",
@@ -14,9 +19,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "af-ZA-WillemNeural",
       "gender": "Male",
       "locale": "af-ZA",
@@ -27,9 +34,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "am-ET-AmehaNeural",
       "gender": "Male",
       "locale": "am-ET",
@@ -40,9 +49,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "am-ET-MekdesNeural",
       "gender": "Female",
       "locale": "am-ET",
@@ -53,9 +64,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-AE-FatimaNeural",
       "gender": "Female",
       "locale": "ar-AE",
@@ -66,9 +79,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-AE-HamdanNeural",
       "gender": "Male",
       "locale": "ar-AE",
@@ -79,9 +94,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-BH-AliNeural",
       "gender": "Male",
       "locale": "ar-BH",
@@ -92,9 +109,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-BH-LailaNeural",
       "gender": "Female",
       "locale": "ar-BH",
@@ -105,9 +124,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-DZ-AminaNeural",
       "gender": "Female",
       "locale": "ar-DZ",
@@ -118,9 +139,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-DZ-IsmaelNeural",
       "gender": "Male",
       "locale": "ar-DZ",
@@ -131,9 +154,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-EG-SalmaNeural",
       "gender": "Female",
       "locale": "ar-EG",
@@ -144,9 +169,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-EG-ShakirNeural",
       "gender": "Male",
       "locale": "ar-EG",
@@ -157,9 +184,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-IQ-BasselNeural",
       "gender": "Male",
       "locale": "ar-IQ",
@@ -170,9 +199,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-IQ-RanaNeural",
       "gender": "Female",
       "locale": "ar-IQ",
@@ -183,9 +214,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-JO-SanaNeural",
       "gender": "Female",
       "locale": "ar-JO",
@@ -196,9 +229,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-JO-TaimNeural",
       "gender": "Male",
       "locale": "ar-JO",
@@ -209,9 +244,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-KW-FahedNeural",
       "gender": "Male",
       "locale": "ar-KW",
@@ -222,9 +259,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-KW-NouraNeural",
       "gender": "Female",
       "locale": "ar-KW",
@@ -235,9 +274,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-LB-LaylaNeural",
       "gender": "Female",
       "locale": "ar-LB",
@@ -248,9 +289,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-LB-RamiNeural",
       "gender": "Male",
       "locale": "ar-LB",
@@ -261,9 +304,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-LY-ImanNeural",
       "gender": "Female",
       "locale": "ar-LY",
@@ -274,9 +319,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-LY-OmarNeural",
       "gender": "Male",
       "locale": "ar-LY",
@@ -287,9 +334,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-MA-JamalNeural",
       "gender": "Male",
       "locale": "ar-MA",
@@ -300,9 +349,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-MA-MounaNeural",
       "gender": "Female",
       "locale": "ar-MA",
@@ -313,9 +364,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-OM-AbdullahNeural",
       "gender": "Male",
       "locale": "ar-OM",
@@ -326,9 +379,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-OM-AyshaNeural",
       "gender": "Female",
       "locale": "ar-OM",
@@ -339,9 +394,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-QA-AmalNeural",
       "gender": "Female",
       "locale": "ar-QA",
@@ -352,9 +409,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-QA-MoazNeural",
       "gender": "Male",
       "locale": "ar-QA",
@@ -365,9 +424,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-SA-HamedNeural",
       "gender": "Male",
       "locale": "ar-SA",
@@ -378,9 +439,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-SA-ZariyahNeural",
       "gender": "Female",
       "locale": "ar-SA",
@@ -391,9 +454,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-SY-AmanyNeural",
       "gender": "Female",
       "locale": "ar-SY",
@@ -404,9 +469,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-SY-LaithNeural",
       "gender": "Male",
       "locale": "ar-SY",
@@ -417,9 +484,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-TN-HediNeural",
       "gender": "Male",
       "locale": "ar-TN",
@@ -430,9 +499,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-TN-ReemNeural",
       "gender": "Female",
       "locale": "ar-TN",
@@ -443,9 +514,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-YE-MaryamNeural",
       "gender": "Female",
       "locale": "ar-YE",
@@ -456,9 +529,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ar-YE-SalehNeural",
       "gender": "Male",
       "locale": "ar-YE",
@@ -469,9 +544,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "az-AZ-BabekNeural",
       "gender": "Male",
       "locale": "az-AZ",
@@ -482,9 +559,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "az-AZ-BanuNeural",
       "gender": "Female",
       "locale": "az-AZ",
@@ -495,9 +574,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "bg-BG-BorislavNeural",
       "gender": "Male",
       "locale": "bg-BG",
@@ -508,9 +589,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "bg-BG-KalinaNeural",
       "gender": "Female",
       "locale": "bg-BG",
@@ -521,9 +604,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "bn-BD-NabanitaNeural",
       "gender": "Female",
       "locale": "bn-BD",
@@ -534,9 +619,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "bn-BD-PradeepNeural",
       "gender": "Male",
       "locale": "bn-BD",
@@ -547,9 +634,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "bn-IN-BashkarNeural",
       "gender": "Male",
       "locale": "bn-IN",
@@ -560,9 +649,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "bn-IN-TanishaaNeural",
       "gender": "Female",
       "locale": "bn-IN",
@@ -573,9 +664,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "bs-BA-GoranNeural",
       "gender": "Male",
       "locale": "bs-BA",
@@ -586,9 +679,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "bs-BA-VesnaNeural",
       "gender": "Female",
       "locale": "bs-BA",
@@ -599,9 +694,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ca-ES-EnricNeural",
       "gender": "Male",
       "locale": "ca-ES",
@@ -612,9 +709,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ca-ES-JoanaNeural",
       "gender": "Female",
       "locale": "ca-ES",
@@ -625,9 +724,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "cs-CZ-AntoninNeural",
       "gender": "Male",
       "locale": "cs-CZ",
@@ -638,9 +739,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "cs-CZ-VlastaNeural",
       "gender": "Female",
       "locale": "cs-CZ",
@@ -651,9 +754,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "cy-GB-AledNeural",
       "gender": "Male",
       "locale": "cy-GB",
@@ -664,9 +769,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "cy-GB-NiaNeural",
       "gender": "Female",
       "locale": "cy-GB",
@@ -677,9 +784,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "da-DK-ChristelNeural",
       "gender": "Female",
       "locale": "da-DK",
@@ -690,9 +799,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "da-DK-JeppeNeural",
       "gender": "Male",
       "locale": "da-DK",
@@ -703,9 +814,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "de-AT-IngridNeural",
       "gender": "Female",
       "locale": "de-AT",
@@ -716,9 +829,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "de-AT-JonasNeural",
       "gender": "Male",
       "locale": "de-AT",
@@ -729,9 +844,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "de-CH-JanNeural",
       "gender": "Male",
       "locale": "de-CH",
@@ -742,9 +859,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "de-CH-LeniNeural",
       "gender": "Female",
       "locale": "de-CH",
@@ -755,9 +874,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "de-DE-AmalaNeural",
       "gender": "Female",
       "locale": "de-DE",
@@ -768,9 +889,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "de-DE-ConradNeural",
       "gender": "Male",
       "locale": "de-DE",
@@ -781,9 +904,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "de-DE-FlorianMultilingualNeural",
       "gender": "Male",
       "locale": "de-DE",
@@ -794,9 +919,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "de-DE-KatjaNeural",
       "gender": "Female",
       "locale": "de-DE",
@@ -807,9 +934,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "de-DE-KillianNeural",
       "gender": "Male",
       "locale": "de-DE",
@@ -820,9 +949,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "de-DE-SeraphinaMultilingualNeural",
       "gender": "Female",
       "locale": "de-DE",
@@ -833,9 +964,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "el-GR-AthinaNeural",
       "gender": "Female",
       "locale": "el-GR",
@@ -846,9 +979,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "el-GR-NestorasNeural",
       "gender": "Male",
       "locale": "el-GR",
@@ -859,9 +994,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-AU-NatashaNeural",
       "gender": "Female",
       "locale": "en-AU",
@@ -872,9 +1009,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-AU-WilliamMultilingualNeural",
       "gender": "Male",
       "locale": "en-AU",
@@ -885,9 +1024,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-CA-ClaraNeural",
       "gender": "Female",
       "locale": "en-CA",
@@ -898,9 +1039,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-CA-LiamNeural",
       "gender": "Male",
       "locale": "en-CA",
@@ -911,9 +1054,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-GB-LibbyNeural",
       "gender": "Female",
       "locale": "en-GB",
@@ -924,9 +1069,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-GB-MaisieNeural",
       "gender": "Female",
       "locale": "en-GB",
@@ -937,9 +1084,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-GB-RyanNeural",
       "gender": "Male",
       "locale": "en-GB",
@@ -950,9 +1099,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-GB-SoniaNeural",
       "gender": "Female",
       "locale": "en-GB",
@@ -963,9 +1114,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-GB-ThomasNeural",
       "gender": "Male",
       "locale": "en-GB",
@@ -976,9 +1129,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-HK-SamNeural",
       "gender": "Male",
       "locale": "en-HK",
@@ -989,9 +1144,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-HK-YanNeural",
       "gender": "Female",
       "locale": "en-HK",
@@ -1002,9 +1159,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-IE-ConnorNeural",
       "gender": "Male",
       "locale": "en-IE",
@@ -1015,9 +1174,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-IE-EmilyNeural",
       "gender": "Female",
       "locale": "en-IE",
@@ -1028,9 +1189,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-IN-NeerjaExpressiveNeural",
       "gender": "Female",
       "locale": "en-IN",
@@ -1041,9 +1204,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-IN-NeerjaNeural",
       "gender": "Female",
       "locale": "en-IN",
@@ -1054,9 +1219,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-IN-PrabhatNeural",
       "gender": "Male",
       "locale": "en-IN",
@@ -1067,9 +1234,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-KE-AsiliaNeural",
       "gender": "Female",
       "locale": "en-KE",
@@ -1080,9 +1249,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-KE-ChilembaNeural",
       "gender": "Male",
       "locale": "en-KE",
@@ -1093,9 +1264,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-NG-AbeoNeural",
       "gender": "Male",
       "locale": "en-NG",
@@ -1106,9 +1279,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-NG-EzinneNeural",
       "gender": "Female",
       "locale": "en-NG",
@@ -1119,9 +1294,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-NZ-MitchellNeural",
       "gender": "Male",
       "locale": "en-NZ",
@@ -1132,9 +1309,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-NZ-MollyNeural",
       "gender": "Female",
       "locale": "en-NZ",
@@ -1145,9 +1324,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-PH-JamesNeural",
       "gender": "Male",
       "locale": "en-PH",
@@ -1158,9 +1339,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-PH-RosaNeural",
       "gender": "Female",
       "locale": "en-PH",
@@ -1171,9 +1354,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-SG-LunaNeural",
       "gender": "Female",
       "locale": "en-SG",
@@ -1184,9 +1369,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-SG-WayneNeural",
       "gender": "Male",
       "locale": "en-SG",
@@ -1197,9 +1384,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-TZ-ElimuNeural",
       "gender": "Male",
       "locale": "en-TZ",
@@ -1210,9 +1399,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-TZ-ImaniNeural",
       "gender": "Female",
       "locale": "en-TZ",
@@ -1223,9 +1414,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-US-AnaNeural",
       "gender": "Female",
       "locale": "en-US",
@@ -1236,9 +1429,11 @@
       ],
       "voice_personalities": [
         "Cute"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-US-AndrewMultilingualNeural",
       "gender": "Male",
       "locale": "en-US",
@@ -1252,9 +1447,11 @@
         "Confident",
         "Authentic",
         "Honest"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-US-AndrewNeural",
       "gender": "Male",
       "locale": "en-US",
@@ -1268,9 +1465,11 @@
         "Confident",
         "Authentic",
         "Honest"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-US-AriaNeural",
       "gender": "Female",
       "locale": "en-US",
@@ -1282,9 +1481,11 @@
       "voice_personalities": [
         "Positive",
         "Confident"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-US-AvaMultilingualNeural",
       "gender": "Female",
       "locale": "en-US",
@@ -1298,9 +1499,11 @@
         "Caring",
         "Pleasant",
         "Friendly"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-US-AvaNeural",
       "gender": "Female",
       "locale": "en-US",
@@ -1314,9 +1517,11 @@
         "Caring",
         "Pleasant",
         "Friendly"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-US-BrianMultilingualNeural",
       "gender": "Male",
       "locale": "en-US",
@@ -1329,9 +1534,11 @@
         "Approachable",
         "Casual",
         "Sincere"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-US-BrianNeural",
       "gender": "Male",
       "locale": "en-US",
@@ -1344,9 +1551,11 @@
         "Approachable",
         "Casual",
         "Sincere"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-US-ChristopherNeural",
       "gender": "Male",
       "locale": "en-US",
@@ -1358,9 +1567,11 @@
       "voice_personalities": [
         "Reliable",
         "Authority"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-US-EmmaMultilingualNeural",
       "gender": "Female",
       "locale": "en-US",
@@ -1373,9 +1584,11 @@
         "Cheerful",
         "Clear",
         "Conversational"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-US-EmmaNeural",
       "gender": "Female",
       "locale": "en-US",
@@ -1388,9 +1601,11 @@
         "Cheerful",
         "Clear",
         "Conversational"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-US-EricNeural",
       "gender": "Male",
       "locale": "en-US",
@@ -1401,9 +1616,11 @@
       ],
       "voice_personalities": [
         "Rational"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-US-GuyNeural",
       "gender": "Male",
       "locale": "en-US",
@@ -1414,9 +1631,11 @@
       ],
       "voice_personalities": [
         "Passion"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-US-JennyNeural",
       "gender": "Female",
       "locale": "en-US",
@@ -1428,9 +1647,11 @@
         "Friendly",
         "Considerate",
         "Comfort"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-US-MichelleNeural",
       "gender": "Female",
       "locale": "en-US",
@@ -1442,9 +1663,11 @@
       "voice_personalities": [
         "Friendly",
         "Pleasant"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-US-RogerNeural",
       "gender": "Male",
       "locale": "en-US",
@@ -1455,9 +1678,11 @@
       ],
       "voice_personalities": [
         "Lively"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-US-SteffanNeural",
       "gender": "Male",
       "locale": "en-US",
@@ -1468,9 +1693,11 @@
       ],
       "voice_personalities": [
         "Rational"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-ZA-LeahNeural",
       "gender": "Female",
       "locale": "en-ZA",
@@ -1481,9 +1708,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "en-ZA-LukeNeural",
       "gender": "Male",
       "locale": "en-ZA",
@@ -1494,9 +1723,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-AR-ElenaNeural",
       "gender": "Female",
       "locale": "es-AR",
@@ -1507,9 +1738,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-AR-TomasNeural",
       "gender": "Male",
       "locale": "es-AR",
@@ -1520,9 +1753,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-BO-MarceloNeural",
       "gender": "Male",
       "locale": "es-BO",
@@ -1533,9 +1768,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-BO-SofiaNeural",
       "gender": "Female",
       "locale": "es-BO",
@@ -1546,9 +1783,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-CL-CatalinaNeural",
       "gender": "Female",
       "locale": "es-CL",
@@ -1559,9 +1798,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-CL-LorenzoNeural",
       "gender": "Male",
       "locale": "es-CL",
@@ -1572,9 +1813,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-CO-GonzaloNeural",
       "gender": "Male",
       "locale": "es-CO",
@@ -1585,9 +1828,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-CO-SalomeNeural",
       "gender": "Female",
       "locale": "es-CO",
@@ -1598,9 +1843,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-CR-JuanNeural",
       "gender": "Male",
       "locale": "es-CR",
@@ -1611,9 +1858,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-CR-MariaNeural",
       "gender": "Female",
       "locale": "es-CR",
@@ -1624,9 +1873,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-CU-BelkysNeural",
       "gender": "Female",
       "locale": "es-CU",
@@ -1637,9 +1888,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-CU-ManuelNeural",
       "gender": "Male",
       "locale": "es-CU",
@@ -1650,9 +1903,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-DO-EmilioNeural",
       "gender": "Male",
       "locale": "es-DO",
@@ -1663,9 +1918,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-DO-RamonaNeural",
       "gender": "Female",
       "locale": "es-DO",
@@ -1676,9 +1933,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-EC-AndreaNeural",
       "gender": "Female",
       "locale": "es-EC",
@@ -1689,9 +1948,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-EC-LuisNeural",
       "gender": "Male",
       "locale": "es-EC",
@@ -1702,9 +1963,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-ES-AlvaroNeural",
       "gender": "Male",
       "locale": "es-ES",
@@ -1715,9 +1978,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-ES-ElviraNeural",
       "gender": "Female",
       "locale": "es-ES",
@@ -1728,9 +1993,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-ES-XimenaNeural",
       "gender": "Female",
       "locale": "es-ES",
@@ -1741,9 +2008,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-GQ-JavierNeural",
       "gender": "Male",
       "locale": "es-GQ",
@@ -1754,9 +2023,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-GQ-TeresaNeural",
       "gender": "Female",
       "locale": "es-GQ",
@@ -1767,9 +2038,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-GT-AndresNeural",
       "gender": "Male",
       "locale": "es-GT",
@@ -1780,9 +2053,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-GT-MartaNeural",
       "gender": "Female",
       "locale": "es-GT",
@@ -1793,9 +2068,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-HN-CarlosNeural",
       "gender": "Male",
       "locale": "es-HN",
@@ -1806,9 +2083,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-HN-KarlaNeural",
       "gender": "Female",
       "locale": "es-HN",
@@ -1819,9 +2098,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-MX-DaliaNeural",
       "gender": "Female",
       "locale": "es-MX",
@@ -1832,9 +2113,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-MX-JorgeNeural",
       "gender": "Male",
       "locale": "es-MX",
@@ -1845,9 +2128,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-NI-FedericoNeural",
       "gender": "Male",
       "locale": "es-NI",
@@ -1858,9 +2143,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-NI-YolandaNeural",
       "gender": "Female",
       "locale": "es-NI",
@@ -1871,9 +2158,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-PA-MargaritaNeural",
       "gender": "Female",
       "locale": "es-PA",
@@ -1884,9 +2173,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-PA-RobertoNeural",
       "gender": "Male",
       "locale": "es-PA",
@@ -1897,9 +2188,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-PE-AlexNeural",
       "gender": "Male",
       "locale": "es-PE",
@@ -1910,9 +2203,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-PE-CamilaNeural",
       "gender": "Female",
       "locale": "es-PE",
@@ -1923,9 +2218,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-PR-KarinaNeural",
       "gender": "Female",
       "locale": "es-PR",
@@ -1936,9 +2233,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-PR-VictorNeural",
       "gender": "Male",
       "locale": "es-PR",
@@ -1949,9 +2248,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-PY-MarioNeural",
       "gender": "Male",
       "locale": "es-PY",
@@ -1962,9 +2263,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-PY-TaniaNeural",
       "gender": "Female",
       "locale": "es-PY",
@@ -1975,9 +2278,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-SV-LorenaNeural",
       "gender": "Female",
       "locale": "es-SV",
@@ -1988,9 +2293,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-SV-RodrigoNeural",
       "gender": "Male",
       "locale": "es-SV",
@@ -2001,9 +2308,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-US-AlonsoNeural",
       "gender": "Male",
       "locale": "es-US",
@@ -2014,9 +2323,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-US-PalomaNeural",
       "gender": "Female",
       "locale": "es-US",
@@ -2027,9 +2338,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-UY-MateoNeural",
       "gender": "Male",
       "locale": "es-UY",
@@ -2040,9 +2353,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-UY-ValentinaNeural",
       "gender": "Female",
       "locale": "es-UY",
@@ -2053,9 +2368,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-VE-PaolaNeural",
       "gender": "Female",
       "locale": "es-VE",
@@ -2066,9 +2383,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "es-VE-SebastianNeural",
       "gender": "Male",
       "locale": "es-VE",
@@ -2079,9 +2398,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "et-EE-AnuNeural",
       "gender": "Female",
       "locale": "et-EE",
@@ -2092,9 +2413,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "et-EE-KertNeural",
       "gender": "Male",
       "locale": "et-EE",
@@ -2105,9 +2428,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "fa-IR-DilaraNeural",
       "gender": "Female",
       "locale": "fa-IR",
@@ -2118,9 +2443,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "fa-IR-FaridNeural",
       "gender": "Male",
       "locale": "fa-IR",
@@ -2131,9 +2458,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "fi-FI-HarriNeural",
       "gender": "Male",
       "locale": "fi-FI",
@@ -2144,9 +2473,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "fi-FI-NooraNeural",
       "gender": "Female",
       "locale": "fi-FI",
@@ -2157,9 +2488,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "fil-PH-AngeloNeural",
       "gender": "Male",
       "locale": "fil-PH",
@@ -2170,9 +2503,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "fil-PH-BlessicaNeural",
       "gender": "Female",
       "locale": "fil-PH",
@@ -2183,9 +2518,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "fr-BE-CharlineNeural",
       "gender": "Female",
       "locale": "fr-BE",
@@ -2196,9 +2533,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "fr-BE-GerardNeural",
       "gender": "Male",
       "locale": "fr-BE",
@@ -2209,9 +2548,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "fr-CA-AntoineNeural",
       "gender": "Male",
       "locale": "fr-CA",
@@ -2222,9 +2563,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "fr-CA-JeanNeural",
       "gender": "Male",
       "locale": "fr-CA",
@@ -2235,9 +2578,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "fr-CA-SylvieNeural",
       "gender": "Female",
       "locale": "fr-CA",
@@ -2248,9 +2593,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "fr-CA-ThierryNeural",
       "gender": "Male",
       "locale": "fr-CA",
@@ -2261,9 +2608,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "fr-CH-ArianeNeural",
       "gender": "Female",
       "locale": "fr-CH",
@@ -2274,9 +2623,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "fr-CH-FabriceNeural",
       "gender": "Male",
       "locale": "fr-CH",
@@ -2287,9 +2638,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "fr-FR-DeniseNeural",
       "gender": "Female",
       "locale": "fr-FR",
@@ -2300,9 +2653,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "fr-FR-EloiseNeural",
       "gender": "Female",
       "locale": "fr-FR",
@@ -2313,9 +2668,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "fr-FR-HenriNeural",
       "gender": "Male",
       "locale": "fr-FR",
@@ -2326,9 +2683,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "fr-FR-RemyMultilingualNeural",
       "gender": "Male",
       "locale": "fr-FR",
@@ -2339,9 +2698,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "fr-FR-VivienneMultilingualNeural",
       "gender": "Female",
       "locale": "fr-FR",
@@ -2352,9 +2713,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ga-IE-ColmNeural",
       "gender": "Male",
       "locale": "ga-IE",
@@ -2365,9 +2728,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ga-IE-OrlaNeural",
       "gender": "Female",
       "locale": "ga-IE",
@@ -2378,9 +2743,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "gl-ES-RoiNeural",
       "gender": "Male",
       "locale": "gl-ES",
@@ -2391,9 +2758,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "gl-ES-SabelaNeural",
       "gender": "Female",
       "locale": "gl-ES",
@@ -2404,9 +2773,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "gu-IN-DhwaniNeural",
       "gender": "Female",
       "locale": "gu-IN",
@@ -2417,9 +2788,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "gu-IN-NiranjanNeural",
       "gender": "Male",
       "locale": "gu-IN",
@@ -2430,9 +2803,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "he-IL-AvriNeural",
       "gender": "Male",
       "locale": "he-IL",
@@ -2443,9 +2818,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "he-IL-HilaNeural",
       "gender": "Female",
       "locale": "he-IL",
@@ -2456,9 +2833,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "hi-IN-MadhurNeural",
       "gender": "Male",
       "locale": "hi-IN",
@@ -2469,9 +2848,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "hi-IN-SwaraNeural",
       "gender": "Female",
       "locale": "hi-IN",
@@ -2482,9 +2863,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "hr-HR-GabrijelaNeural",
       "gender": "Female",
       "locale": "hr-HR",
@@ -2495,9 +2878,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "hr-HR-SreckoNeural",
       "gender": "Male",
       "locale": "hr-HR",
@@ -2508,9 +2893,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "hu-HU-NoemiNeural",
       "gender": "Female",
       "locale": "hu-HU",
@@ -2521,9 +2908,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "hu-HU-TamasNeural",
       "gender": "Male",
       "locale": "hu-HU",
@@ -2534,9 +2923,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "id-ID-ArdiNeural",
       "gender": "Male",
       "locale": "id-ID",
@@ -2547,9 +2938,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "id-ID-GadisNeural",
       "gender": "Female",
       "locale": "id-ID",
@@ -2560,9 +2953,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "is-IS-GudrunNeural",
       "gender": "Female",
       "locale": "is-IS",
@@ -2573,9 +2968,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "is-IS-GunnarNeural",
       "gender": "Male",
       "locale": "is-IS",
@@ -2586,9 +2983,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "it-IT-DiegoNeural",
       "gender": "Male",
       "locale": "it-IT",
@@ -2599,9 +2998,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "it-IT-ElsaNeural",
       "gender": "Female",
       "locale": "it-IT",
@@ -2612,9 +3013,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "it-IT-GiuseppeMultilingualNeural",
       "gender": "Male",
       "locale": "it-IT",
@@ -2625,9 +3028,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "it-IT-IsabellaNeural",
       "gender": "Female",
       "locale": "it-IT",
@@ -2638,9 +3043,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "iu-Cans-CA-SiqiniqNeural",
       "gender": "Female",
       "locale": "iu-Cans-CA",
@@ -2651,9 +3058,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "iu-Cans-CA-TaqqiqNeural",
       "gender": "Male",
       "locale": "iu-Cans-CA",
@@ -2664,9 +3073,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "iu-Latn-CA-SiqiniqNeural",
       "gender": "Female",
       "locale": "iu-Latn-CA",
@@ -2677,9 +3088,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "iu-Latn-CA-TaqqiqNeural",
       "gender": "Male",
       "locale": "iu-Latn-CA",
@@ -2690,9 +3103,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ja-JP-KeitaNeural",
       "gender": "Male",
       "locale": "ja-JP",
@@ -2703,9 +3118,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ja-JP-NanamiNeural",
       "gender": "Female",
       "locale": "ja-JP",
@@ -2716,9 +3133,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "jv-ID-DimasNeural",
       "gender": "Male",
       "locale": "jv-ID",
@@ -2729,9 +3148,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "jv-ID-SitiNeural",
       "gender": "Female",
       "locale": "jv-ID",
@@ -2742,9 +3163,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ka-GE-EkaNeural",
       "gender": "Female",
       "locale": "ka-GE",
@@ -2755,9 +3178,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ka-GE-GiorgiNeural",
       "gender": "Male",
       "locale": "ka-GE",
@@ -2768,9 +3193,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "kk-KZ-AigulNeural",
       "gender": "Female",
       "locale": "kk-KZ",
@@ -2781,9 +3208,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "kk-KZ-DauletNeural",
       "gender": "Male",
       "locale": "kk-KZ",
@@ -2794,9 +3223,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "km-KH-PisethNeural",
       "gender": "Male",
       "locale": "km-KH",
@@ -2807,9 +3238,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "km-KH-SreymomNeural",
       "gender": "Female",
       "locale": "km-KH",
@@ -2820,9 +3253,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "kn-IN-GaganNeural",
       "gender": "Male",
       "locale": "kn-IN",
@@ -2833,9 +3268,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "kn-IN-SapnaNeural",
       "gender": "Female",
       "locale": "kn-IN",
@@ -2846,9 +3283,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ko-KR-HyunsuMultilingualNeural",
       "gender": "Male",
       "locale": "ko-KR",
@@ -2859,9 +3298,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ko-KR-InJoonNeural",
       "gender": "Male",
       "locale": "ko-KR",
@@ -2872,9 +3313,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ko-KR-SunHiNeural",
       "gender": "Female",
       "locale": "ko-KR",
@@ -2885,9 +3328,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "lo-LA-ChanthavongNeural",
       "gender": "Male",
       "locale": "lo-LA",
@@ -2898,9 +3343,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "lo-LA-KeomanyNeural",
       "gender": "Female",
       "locale": "lo-LA",
@@ -2911,9 +3358,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "lt-LT-LeonasNeural",
       "gender": "Male",
       "locale": "lt-LT",
@@ -2924,9 +3373,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "lt-LT-OnaNeural",
       "gender": "Female",
       "locale": "lt-LT",
@@ -2937,9 +3388,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "lv-LV-EveritaNeural",
       "gender": "Female",
       "locale": "lv-LV",
@@ -2950,9 +3403,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "lv-LV-NilsNeural",
       "gender": "Male",
       "locale": "lv-LV",
@@ -2963,9 +3418,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "mk-MK-AleksandarNeural",
       "gender": "Male",
       "locale": "mk-MK",
@@ -2976,9 +3433,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "mk-MK-MarijaNeural",
       "gender": "Female",
       "locale": "mk-MK",
@@ -2989,9 +3448,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ml-IN-MidhunNeural",
       "gender": "Male",
       "locale": "ml-IN",
@@ -3002,9 +3463,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ml-IN-SobhanaNeural",
       "gender": "Female",
       "locale": "ml-IN",
@@ -3015,9 +3478,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "mn-MN-BataaNeural",
       "gender": "Male",
       "locale": "mn-MN",
@@ -3028,9 +3493,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "mn-MN-YesuiNeural",
       "gender": "Female",
       "locale": "mn-MN",
@@ -3041,9 +3508,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "mr-IN-AarohiNeural",
       "gender": "Female",
       "locale": "mr-IN",
@@ -3054,9 +3523,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "mr-IN-ManoharNeural",
       "gender": "Male",
       "locale": "mr-IN",
@@ -3067,9 +3538,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ms-MY-OsmanNeural",
       "gender": "Male",
       "locale": "ms-MY",
@@ -3080,9 +3553,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ms-MY-YasminNeural",
       "gender": "Female",
       "locale": "ms-MY",
@@ -3093,9 +3568,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "mt-MT-GraceNeural",
       "gender": "Female",
       "locale": "mt-MT",
@@ -3106,9 +3583,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "mt-MT-JosephNeural",
       "gender": "Male",
       "locale": "mt-MT",
@@ -3119,9 +3598,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "my-MM-NilarNeural",
       "gender": "Female",
       "locale": "my-MM",
@@ -3132,9 +3613,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "my-MM-ThihaNeural",
       "gender": "Male",
       "locale": "my-MM",
@@ -3145,9 +3628,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "nb-NO-FinnNeural",
       "gender": "Male",
       "locale": "nb-NO",
@@ -3158,9 +3643,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "nb-NO-PernilleNeural",
       "gender": "Female",
       "locale": "nb-NO",
@@ -3171,9 +3658,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ne-NP-HemkalaNeural",
       "gender": "Female",
       "locale": "ne-NP",
@@ -3184,9 +3673,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ne-NP-SagarNeural",
       "gender": "Male",
       "locale": "ne-NP",
@@ -3197,9 +3688,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "nl-BE-ArnaudNeural",
       "gender": "Male",
       "locale": "nl-BE",
@@ -3210,9 +3703,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "nl-BE-DenaNeural",
       "gender": "Female",
       "locale": "nl-BE",
@@ -3223,9 +3718,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "nl-NL-ColetteNeural",
       "gender": "Female",
       "locale": "nl-NL",
@@ -3236,9 +3733,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "nl-NL-FennaNeural",
       "gender": "Female",
       "locale": "nl-NL",
@@ -3249,9 +3748,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "nl-NL-MaartenNeural",
       "gender": "Male",
       "locale": "nl-NL",
@@ -3262,9 +3763,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "pl-PL-MarekNeural",
       "gender": "Male",
       "locale": "pl-PL",
@@ -3275,9 +3778,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "pl-PL-ZofiaNeural",
       "gender": "Female",
       "locale": "pl-PL",
@@ -3288,9 +3793,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ps-AF-GulNawazNeural",
       "gender": "Male",
       "locale": "ps-AF",
@@ -3301,9 +3808,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ps-AF-LatifaNeural",
       "gender": "Female",
       "locale": "ps-AF",
@@ -3314,9 +3823,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "pt-BR-AntonioNeural",
       "gender": "Male",
       "locale": "pt-BR",
@@ -3327,9 +3838,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "pt-BR-FranciscaNeural",
       "gender": "Female",
       "locale": "pt-BR",
@@ -3340,9 +3853,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "pt-BR-ThalitaMultilingualNeural",
       "gender": "Female",
       "locale": "pt-BR",
@@ -3353,9 +3868,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "pt-PT-DuarteNeural",
       "gender": "Male",
       "locale": "pt-PT",
@@ -3366,9 +3883,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "pt-PT-RaquelNeural",
       "gender": "Female",
       "locale": "pt-PT",
@@ -3379,9 +3898,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ro-RO-AlinaNeural",
       "gender": "Female",
       "locale": "ro-RO",
@@ -3392,9 +3913,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ro-RO-EmilNeural",
       "gender": "Male",
       "locale": "ro-RO",
@@ -3405,9 +3928,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ru-RU-DmitryNeural",
       "gender": "Male",
       "locale": "ru-RU",
@@ -3418,9 +3943,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ru-RU-SvetlanaNeural",
       "gender": "Female",
       "locale": "ru-RU",
@@ -3431,9 +3958,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "si-LK-SameeraNeural",
       "gender": "Male",
       "locale": "si-LK",
@@ -3444,9 +3973,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "si-LK-ThiliniNeural",
       "gender": "Female",
       "locale": "si-LK",
@@ -3457,9 +3988,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "sk-SK-LukasNeural",
       "gender": "Male",
       "locale": "sk-SK",
@@ -3470,9 +4003,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "sk-SK-ViktoriaNeural",
       "gender": "Female",
       "locale": "sk-SK",
@@ -3483,9 +4018,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "sl-SI-PetraNeural",
       "gender": "Female",
       "locale": "sl-SI",
@@ -3496,9 +4033,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "sl-SI-RokNeural",
       "gender": "Male",
       "locale": "sl-SI",
@@ -3509,9 +4048,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "so-SO-MuuseNeural",
       "gender": "Male",
       "locale": "so-SO",
@@ -3522,9 +4063,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "so-SO-UbaxNeural",
       "gender": "Female",
       "locale": "so-SO",
@@ -3535,9 +4078,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "sq-AL-AnilaNeural",
       "gender": "Female",
       "locale": "sq-AL",
@@ -3548,9 +4093,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "sq-AL-IlirNeural",
       "gender": "Male",
       "locale": "sq-AL",
@@ -3561,9 +4108,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "sr-RS-NicholasNeural",
       "gender": "Male",
       "locale": "sr-RS",
@@ -3574,9 +4123,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "sr-RS-SophieNeural",
       "gender": "Female",
       "locale": "sr-RS",
@@ -3587,9 +4138,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "su-ID-JajangNeural",
       "gender": "Male",
       "locale": "su-ID",
@@ -3600,9 +4153,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "su-ID-TutiNeural",
       "gender": "Female",
       "locale": "su-ID",
@@ -3613,9 +4168,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "sv-SE-MattiasNeural",
       "gender": "Male",
       "locale": "sv-SE",
@@ -3626,9 +4183,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "sv-SE-SofieNeural",
       "gender": "Female",
       "locale": "sv-SE",
@@ -3639,9 +4198,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "sw-KE-RafikiNeural",
       "gender": "Male",
       "locale": "sw-KE",
@@ -3652,9 +4213,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "sw-KE-ZuriNeural",
       "gender": "Female",
       "locale": "sw-KE",
@@ -3665,9 +4228,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "sw-TZ-DaudiNeural",
       "gender": "Male",
       "locale": "sw-TZ",
@@ -3678,9 +4243,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "sw-TZ-RehemaNeural",
       "gender": "Female",
       "locale": "sw-TZ",
@@ -3691,9 +4258,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ta-IN-PallaviNeural",
       "gender": "Female",
       "locale": "ta-IN",
@@ -3704,9 +4273,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ta-IN-ValluvarNeural",
       "gender": "Male",
       "locale": "ta-IN",
@@ -3717,9 +4288,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ta-LK-KumarNeural",
       "gender": "Male",
       "locale": "ta-LK",
@@ -3730,9 +4303,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ta-LK-SaranyaNeural",
       "gender": "Female",
       "locale": "ta-LK",
@@ -3743,9 +4318,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ta-MY-KaniNeural",
       "gender": "Female",
       "locale": "ta-MY",
@@ -3756,9 +4333,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ta-MY-SuryaNeural",
       "gender": "Male",
       "locale": "ta-MY",
@@ -3769,9 +4348,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ta-SG-AnbuNeural",
       "gender": "Male",
       "locale": "ta-SG",
@@ -3782,9 +4363,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ta-SG-VenbaNeural",
       "gender": "Female",
       "locale": "ta-SG",
@@ -3795,9 +4378,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "te-IN-MohanNeural",
       "gender": "Male",
       "locale": "te-IN",
@@ -3808,9 +4393,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "te-IN-ShrutiNeural",
       "gender": "Female",
       "locale": "te-IN",
@@ -3821,9 +4408,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "th-TH-NiwatNeural",
       "gender": "Male",
       "locale": "th-TH",
@@ -3834,9 +4423,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "th-TH-PremwadeeNeural",
       "gender": "Female",
       "locale": "th-TH",
@@ -3847,9 +4438,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "tr-TR-AhmetNeural",
       "gender": "Male",
       "locale": "tr-TR",
@@ -3860,9 +4453,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "tr-TR-EmelNeural",
       "gender": "Female",
       "locale": "tr-TR",
@@ -3873,9 +4468,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "uk-UA-OstapNeural",
       "gender": "Male",
       "locale": "uk-UA",
@@ -3886,9 +4483,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "uk-UA-PolinaNeural",
       "gender": "Female",
       "locale": "uk-UA",
@@ -3899,9 +4498,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ur-IN-GulNeural",
       "gender": "Female",
       "locale": "ur-IN",
@@ -3912,9 +4513,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ur-IN-SalmanNeural",
       "gender": "Male",
       "locale": "ur-IN",
@@ -3925,9 +4528,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ur-PK-AsadNeural",
       "gender": "Male",
       "locale": "ur-PK",
@@ -3938,9 +4543,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "ur-PK-UzmaNeural",
       "gender": "Female",
       "locale": "ur-PK",
@@ -3951,9 +4558,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "uz-UZ-MadinaNeural",
       "gender": "Female",
       "locale": "uz-UZ",
@@ -3964,9 +4573,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "uz-UZ-SardorNeural",
       "gender": "Male",
       "locale": "uz-UZ",
@@ -3977,9 +4588,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "vi-VN-HoaiMyNeural",
       "gender": "Female",
       "locale": "vi-VN",
@@ -3990,9 +4603,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "vi-VN-NamMinhNeural",
       "gender": "Male",
       "locale": "vi-VN",
@@ -4003,9 +4618,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "zh-CN-XiaoxiaoNeural",
       "gender": "Female",
       "locale": "zh-CN",
@@ -4016,9 +4633,11 @@
       ],
       "voice_personalities": [
         "Warm"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "zh-CN-XiaoyiNeural",
       "gender": "Female",
       "locale": "zh-CN",
@@ -4029,9 +4648,11 @@
       ],
       "voice_personalities": [
         "Lively"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "zh-CN-YunjianNeural",
       "gender": "Male",
       "locale": "zh-CN",
@@ -4042,9 +4663,11 @@
       ],
       "voice_personalities": [
         "Passion"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "zh-CN-YunxiNeural",
       "gender": "Male",
       "locale": "zh-CN",
@@ -4055,9 +4678,11 @@
       "voice_personalities": [
         "Lively",
         "Sunshine"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "zh-CN-YunxiaNeural",
       "gender": "Male",
       "locale": "zh-CN",
@@ -4068,9 +4693,11 @@
       ],
       "voice_personalities": [
         "Cute"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "zh-CN-YunyangNeural",
       "gender": "Male",
       "locale": "zh-CN",
@@ -4081,9 +4708,11 @@
       "voice_personalities": [
         "Professional",
         "Reliable"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "zh-CN-liaoning-XiaobeiNeural",
       "gender": "Female",
       "locale": "zh-CN-liaoning",
@@ -4093,9 +4722,11 @@
       ],
       "voice_personalities": [
         "Humorous"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "zh-CN-shaanxi-XiaoniNeural",
       "gender": "Female",
       "locale": "zh-CN-shaanxi",
@@ -4105,9 +4736,11 @@
       ],
       "voice_personalities": [
         "Bright"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "zh-HK-HiuGaaiNeural",
       "gender": "Female",
       "locale": "zh-HK",
@@ -4118,9 +4751,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "zh-HK-HiuMaanNeural",
       "gender": "Female",
       "locale": "zh-HK",
@@ -4131,9 +4766,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "zh-HK-WanLungNeural",
       "gender": "Male",
       "locale": "zh-HK",
@@ -4144,9 +4781,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "zh-TW-HsiaoChenNeural",
       "gender": "Female",
       "locale": "zh-TW",
@@ -4157,9 +4796,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "zh-TW-HsiaoYuNeural",
       "gender": "Female",
       "locale": "zh-TW",
@@ -4170,9 +4811,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "zh-TW-YunJheNeural",
       "gender": "Male",
       "locale": "zh-TW",
@@ -4183,9 +4826,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "zu-ZA-ThandoNeural",
       "gender": "Female",
       "locale": "zu-ZA",
@@ -4196,9 +4841,11 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
     },
     {
+      "engine": "edge",
       "short_name": "zu-ZA-ThembaNeural",
       "gender": "Male",
       "locale": "zu-ZA",
@@ -4209,7 +4856,548 @@
       "voice_personalities": [
         "Friendly",
         "Positive"
-      ]
+      ],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "zf_xiaobei",
+      "gender": "Female",
+      "locale": "cmn-CN",
+      "friendly_name": "Xiaobei (Mandarin Chinese)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": false
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "zf_xiaoni",
+      "gender": "Female",
+      "locale": "cmn-CN",
+      "friendly_name": "Xiaoni (Mandarin Chinese)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": false
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "zf_xiaoxiao",
+      "gender": "Female",
+      "locale": "cmn-CN",
+      "friendly_name": "Xiaoxiao (Mandarin Chinese)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": false
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "zf_xiaoyi",
+      "gender": "Female",
+      "locale": "cmn-CN",
+      "friendly_name": "Xiaoyi (Mandarin Chinese)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": false
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "zm_yunjian",
+      "gender": "Male",
+      "locale": "cmn-CN",
+      "friendly_name": "Yunjian (Mandarin Chinese)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": false
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "zm_yunxi",
+      "gender": "Male",
+      "locale": "cmn-CN",
+      "friendly_name": "Yunxi (Mandarin Chinese)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": false
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "zm_yunxia",
+      "gender": "Male",
+      "locale": "cmn-CN",
+      "friendly_name": "Yunxia (Mandarin Chinese)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": false
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "zm_yunyang",
+      "gender": "Male",
+      "locale": "cmn-CN",
+      "friendly_name": "Yunyang (Mandarin Chinese)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": false
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "bf_alice",
+      "gender": "Female",
+      "locale": "en-GB",
+      "friendly_name": "Alice (British English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "bf_emma",
+      "gender": "Female",
+      "locale": "en-GB",
+      "friendly_name": "Emma (British English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "bf_isabella",
+      "gender": "Female",
+      "locale": "en-GB",
+      "friendly_name": "Isabella (British English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "bf_lily",
+      "gender": "Female",
+      "locale": "en-GB",
+      "friendly_name": "Lily (British English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "bm_daniel",
+      "gender": "Male",
+      "locale": "en-GB",
+      "friendly_name": "Daniel (British English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "bm_fable",
+      "gender": "Male",
+      "locale": "en-GB",
+      "friendly_name": "Fable (British English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "bm_george",
+      "gender": "Male",
+      "locale": "en-GB",
+      "friendly_name": "George (British English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "bm_lewis",
+      "gender": "Male",
+      "locale": "en-GB",
+      "friendly_name": "Lewis (British English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "af_alloy",
+      "gender": "Female",
+      "locale": "en-US",
+      "friendly_name": "Alloy (American English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "af_aoede",
+      "gender": "Female",
+      "locale": "en-US",
+      "friendly_name": "Aoede (American English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "af_bella",
+      "gender": "Female",
+      "locale": "en-US",
+      "friendly_name": "Bella (American English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "af_heart",
+      "gender": "Female",
+      "locale": "en-US",
+      "friendly_name": "Heart (American English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "af_jessica",
+      "gender": "Female",
+      "locale": "en-US",
+      "friendly_name": "Jessica (American English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "af_kore",
+      "gender": "Female",
+      "locale": "en-US",
+      "friendly_name": "Kore (American English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "af_nicole",
+      "gender": "Female",
+      "locale": "en-US",
+      "friendly_name": "Nicole (American English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "af_nova",
+      "gender": "Female",
+      "locale": "en-US",
+      "friendly_name": "Nova (American English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "af_river",
+      "gender": "Female",
+      "locale": "en-US",
+      "friendly_name": "River (American English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "af_sarah",
+      "gender": "Female",
+      "locale": "en-US",
+      "friendly_name": "Sarah (American English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "af_sky",
+      "gender": "Female",
+      "locale": "en-US",
+      "friendly_name": "Sky (American English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "am_adam",
+      "gender": "Male",
+      "locale": "en-US",
+      "friendly_name": "Adam (American English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "am_echo",
+      "gender": "Male",
+      "locale": "en-US",
+      "friendly_name": "Echo (American English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "am_eric",
+      "gender": "Male",
+      "locale": "en-US",
+      "friendly_name": "Eric (American English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "am_fenrir",
+      "gender": "Male",
+      "locale": "en-US",
+      "friendly_name": "Fenrir (American English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "am_liam",
+      "gender": "Male",
+      "locale": "en-US",
+      "friendly_name": "Liam (American English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "am_michael",
+      "gender": "Male",
+      "locale": "en-US",
+      "friendly_name": "Michael (American English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "am_onyx",
+      "gender": "Male",
+      "locale": "en-US",
+      "friendly_name": "Onyx (American English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "am_puck",
+      "gender": "Male",
+      "locale": "en-US",
+      "friendly_name": "Puck (American English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "am_santa",
+      "gender": "Male",
+      "locale": "en-US",
+      "friendly_name": "Santa (American English)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": true
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "ef_dora",
+      "gender": "Female",
+      "locale": "es-ES",
+      "friendly_name": "Dora (Spanish)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": false
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "em_alex",
+      "gender": "Male",
+      "locale": "es-ES",
+      "friendly_name": "Alex (Spanish)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": false
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "em_santa",
+      "gender": "Male",
+      "locale": "es-ES",
+      "friendly_name": "Santa (Spanish)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": false
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "ff_siwis",
+      "gender": "Female",
+      "locale": "fr-FR",
+      "friendly_name": "Siwis (French)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": false
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "hf_alpha",
+      "gender": "Female",
+      "locale": "hi-IN",
+      "friendly_name": "Alpha (Hindi)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": false
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "hf_beta",
+      "gender": "Female",
+      "locale": "hi-IN",
+      "friendly_name": "Beta (Hindi)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": false
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "hm_omega",
+      "gender": "Male",
+      "locale": "hi-IN",
+      "friendly_name": "Omega (Hindi)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": false
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "hm_psi",
+      "gender": "Male",
+      "locale": "hi-IN",
+      "friendly_name": "Psi (Hindi)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": false
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "if_sara",
+      "gender": "Female",
+      "locale": "it-IT",
+      "friendly_name": "Sara (Italian)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": false
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "im_nicola",
+      "gender": "Male",
+      "locale": "it-IT",
+      "friendly_name": "Nicola (Italian)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": false
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "jf_alpha",
+      "gender": "Female",
+      "locale": "ja-JP",
+      "friendly_name": "Alpha (Japanese)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": false
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "jf_gongitsune",
+      "gender": "Female",
+      "locale": "ja-JP",
+      "friendly_name": "Gongitsune (Japanese)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": false
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "jf_nezumi",
+      "gender": "Female",
+      "locale": "ja-JP",
+      "friendly_name": "Nezumi (Japanese)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": false
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "jf_tebukuro",
+      "gender": "Female",
+      "locale": "ja-JP",
+      "friendly_name": "Tebukuro (Japanese)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": false
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "jm_kumo",
+      "gender": "Male",
+      "locale": "ja-JP",
+      "friendly_name": "Kumo (Japanese)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": false
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "pf_dora",
+      "gender": "Female",
+      "locale": "pt-BR",
+      "friendly_name": "Dora (Brazilian Portuguese)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": false
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "pm_alex",
+      "gender": "Male",
+      "locale": "pt-BR",
+      "friendly_name": "Alex (Brazilian Portuguese)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": false
+    },
+    {
+      "engine": "kokoro",
+      "short_name": "pm_santa",
+      "gender": "Male",
+      "locale": "pt-BR",
+      "friendly_name": "Santa (Brazilian Portuguese)",
+      "content_categories": [],
+      "voice_personalities": [],
+      "supported": false
     }
   ]
 }

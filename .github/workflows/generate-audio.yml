@@ -2,13 +2,14 @@ name: Generate ACARS Audio
 
 on:
   push:
-    branches: [main]
+    branches: [main, kokoro]
     paths:
       - templates.json
       - config.json
       - voices.json
       - requirements.txt
       - tools/generate_audio.py
+      - tools/kokoro_tts.py
       - .github/workflows/generate-audio.yml
   pull_request:
     paths:
@@ -17,6 +18,7 @@ on:
       - voices.json
       - requirements.txt
       - tools/generate_audio.py
+      - tools/kokoro_tts.py
       - .github/workflows/generate-audio.yml
   workflow_dispatch:
 
@@ -26,12 +28,12 @@ permissions:
 # Serialize generation with final-release publishing so releases cannot
 # accidentally capture a partially updated audio library.
 concurrency:
-  group: acars-audio-pipeline
+  group: acars-audio-pipeline-${{ github.head_ref || github.ref_name }}
   cancel-in-progress: false
 
 jobs:
   generate:
-    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/kokoro'
     name: Generate and commit MP3s
     runs-on: ubuntu-latest
     timeout-minutes: 40
@@ -44,11 +46,17 @@ jobs:
           python-version: '3.12'
           cache: pip
           cache-dependency-path: requirements.txt
-      - name: Install FFmpeg and Edge TTS
+      - name: Install FFmpeg and TTS engines
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq ffmpeg
+          sudo apt-get install -y -qq ffmpeg espeak-ng libsndfile1
           python -m pip install -r requirements.txt
+      - name: Cache Kokoro model assets
+        uses: actions/cache@v4
+        with:
+          path: .kokoro-models
+          key: kokoro-models-${{ runner.os }}-${{ hashFiles('config.json') }}
+          restore-keys: kokoro-models-${{ runner.os }}-
       - name: Validate announcement templates
         run: python tools/generate_audio.py --validate
       - name: Generate and package audio
@@ -63,6 +71,8 @@ jobs:
       - name: Update repository /audio directory
         if: github.event_name != 'pull_request'
         shell: bash
+        env:
+          TARGET_BRANCH: ${{ github.ref_name }}
         run: |
           set -euo pipefail
           # /audio is fully managed by the generator, including its manifest.
@@ -80,4 +90,5 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git commit -m 'Update generated ACARS announcement audio'
           # Deliberately do not force-push or rebase a potentially stale build.
-          git push origin HEAD:main
+          git push origin "HEAD:$TARGET_BRANCH"
+

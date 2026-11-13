@@ -31,6 +31,9 @@ def load_json(filename):
 
 
 def resolve(config, template):
+    engine = config.get("tts_engine", "edge")
+    if engine not in ("edge", "kokoro"):
+        fail("tts_engine must be 'edge' or 'kokoro'")
     roles = config["roles"]
     tts = config["tts_defaults"]
     audio = config["audio"]
@@ -41,7 +44,8 @@ def resolve(config, template):
         fail("audio.bitrate_kbps must be a supported MP3 bitrate")
     if audio["sample_rate_hz"] < 32000 and audio["bitrate_kbps"] > 160:
         fail("MP3 sample rates below 32000 Hz support at most 160 kbps")
-    known_voices = {v["short_name"] for v in load_json("voices.json")["voices"]}
+    known_voices = {v["short_name"] for v in load_json("voices.json")["voices"]
+                    if v.get("engine", "edge") == engine}
     seen_ids, seen_files = set(), set()
     plans = []
     if template.get("schema_version") != 1 or config.get("schema_version") != 1:
@@ -71,9 +75,9 @@ def resolve(config, template):
         role = item.get("speaker")
         if role not in roles:
             fail(f"{identifier}: unknown speaker role {role!r}")
-        voice = item.get("voice") or roles[role]["voice"]
-        if not isinstance(voice, str) or not re.fullmatch(r"[A-Za-z0-9-]+", voice):
-            fail(f"{identifier}: invalid Edge voice name")
+        voice = item.get("voice") or roles[role].get("voices", {}).get(engine, roles[role].get("voice"))
+        if not isinstance(voice, str) or not re.fullmatch(r"[A-Za-z0-9_-]+", voice):
+            fail(f"{identifier}: invalid {engine} voice name")
         if voice not in known_voices:
             fail(f"{identifier}: unknown voice {voice!r}; refresh the voice catalog if needed")
         overrides = item.get("audio") or {}
@@ -85,6 +89,17 @@ def resolve(config, template):
         for key, regex in (("rate", RATE_RE), ("pitch", PITCH_RE), ("volume", RATE_RE)):
             if not isinstance(settings[key], str) or not regex.fullmatch(settings[key]):
                 fail(f"{identifier}: invalid {key} {settings[key]!r}; expected e.g. '+5%' or '+0Hz'")
+        language = ""
+        if engine == "kokoro":
+            if voice[:2] not in ("af", "am", "bf", "bm"):
+                fail(f"{identifier}: this generator currently supports English Kokoro voices only")
+            language = "en-us" if voice.startswith("a") else "en-gb"
+            if not -50 <= int(settings["rate"][:-1]) <= 100:
+                fail(f"{identifier}: Kokoro rate must be between -50% and +100%")
+            if int(settings["pitch"][:-2]) != 0:
+                fail(f"{identifier}: Kokoro does not support pitch offsets; use +0Hz")
+            if int(settings["volume"][:-1]) < -100:
+                fail(f"{identifier}: Kokoro volume must be at least -100%")
         channel = item.get("channel", "passenger_pa")
         effect = overrides.get("effect", audio["default_effect"])
         if effect not in presets:
@@ -113,11 +128,19 @@ def resolve(config, template):
         if not 0 <= preset["noise_amplitude"] <= 0.1 or not 0 <= preset["crusher_bits"] <= 64:
             fail(f"{effect}: static or bit-crusher settings out of range")
         plans.append({
+            "engine": engine, "language": language,
             "id": identifier, "filename": filename, "event": item.get("event", ""),
             "speaker": role, "channel": channel, "voice": voice, "text": text,
             "rate": settings["rate"], "pitch": settings["pitch"], "volume": settings["volume"],
             "effect": effect,
         })
+        if engine == "kokoro":
+            # Model/voice-pack and runtime changes must not reuse another model's speech.
+            plans[-1]["model_fingerprint"] = fingerprint({
+                "assets": config["kokoro"],
+                "runtime": file_hash(ROOT / "requirements.txt"),
+                "synthesizer": file_hash(ROOT / "tools/kokoro_tts.py"),
+            })
     return plans
 
 
@@ -132,7 +155,10 @@ def file_hash(path):
 
 def speech_key(plan):
     # No effect, filename, role, or channel: only inputs that change spoken audio.
-    return fingerprint({"version": 1, **{k: plan[k] for k in ("text", "voice", "rate", "pitch", "volume")}})
+    inputs = {k: plan[k] for k in ("text", "voice", "rate", "pitch", "volume")}
+    if plan.get("engine", "edge") == "kokoro":
+        inputs.update(engine="kokoro", language=plan["language"], model=plan["model_fingerprint"])
+    return fingerprint({"version": 1, **inputs})
 
 
 def processing_key(plan, config):
@@ -154,8 +180,12 @@ def manifest_entry(plan, config, path):
     }
 
 
-def cached_speech(key):
-    path = SPEECH_CACHE / (key + ".mp3")
+def speech_path(plan):
+    return SPEECH_CACHE / (speech_key(plan) + (".wav" if plan["engine"] == "kokoro" else ".mp3"))
+
+
+def cached_speech(plan):
+    path = speech_path(plan)
     checksum = path.with_suffix(".sha256")
     return (path.is_file() and path.stat().st_size >= 512 and checksum.is_file()
             and checksum.read_text(encoding="utf-8").strip() == file_hash(path))
@@ -234,23 +264,29 @@ def generation_settings(config):
         fail("generation.max_attempts must be 1 or 2 (at most one retry)")
     if type(retry_delay) not in (int, float) or not 0 <= retry_delay <= 60:
         fail("generation.retry_delay_seconds must be a number from 0 to 60")
+    if config.get("tts_engine", "edge") == "kokoro":
+        timeout = settings.get("kokoro_timeout_seconds")
+        if type(timeout) not in (int, float) or not 1 <= timeout <= 600:
+            fail("generation.kokoro_timeout_seconds must be a number from 1 to 600")
     return timeout, attempts, retry_delay
 
 
-async def synthesize(plan, target, timeout_seconds, attempts, retry_delay_seconds):
-    import edge_tts
-
+async def synthesize(plan, target, timeout_seconds, attempts, retry_delay_seconds, kokoro=None):
     for attempt in range(1, attempts + 1):
         try:
-            communicate = edge_tts.Communicate(
-                text=plan["text"], voice=plan["voice"],
-                rate=plan["rate"], pitch=plan["pitch"], volume=plan["volume"],
-            )
-            await asyncio.wait_for(
-                communicate.save(str(target)), timeout=timeout_seconds
-            )
+            if plan["engine"] == "kokoro":
+                await asyncio.to_thread(kokoro.generate, plan, target, timeout_seconds)
+            else:
+                import edge_tts
+                communicate = edge_tts.Communicate(
+                    text=plan["text"], voice=plan["voice"],
+                    rate=plan["rate"], pitch=plan["pitch"], volume=plan["volume"],
+                )
+                await asyncio.wait_for(
+                    communicate.save(str(target)), timeout=timeout_seconds
+                )
             if not target.is_file() or target.stat().st_size < 512:
-                raise RuntimeError("Edge returned an empty audio file")
+                raise RuntimeError(f"{plan['engine']} returned an empty audio file")
             return
         except Exception as exc:
             target.unlink(missing_ok=True)
@@ -293,7 +329,7 @@ def package(output_dir, plans, config):
 
 async def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--validate", action="store_true", help="Check config without Edge or FFmpeg")
+    parser.add_argument("--validate", action="store_true", help="Check config without TTS engines or FFmpeg")
     parser.add_argument("--output", default="dist/audio", help="Directory for generated MP3s")
     args = parser.parse_args()
     config, template = load_json("config.json"), load_json("templates.json")
@@ -314,46 +350,53 @@ async def main():
     SPEECH_CACHE.mkdir(parents=True, exist_ok=True)
     previous = previous_recordings()
     reused = processed = generated = 0
-    for index, plan in enumerate(plans, 1):
-        print(f"[{index}/{len(plans)}] {plan['id']} | {plan['voice']} | {plan['effect']}", flush=True)
-        key = speech_key(plan)
-        raw = SPEECH_CACHE / (key + ".mp3")
-        old = previous.get(plan["id"], {})
-        # Resolve the old path only from a validated basename.
-        old_name = old.get("filename", "")
-        old_path = ROOT / "audio" / old_name
-        if (FILENAME_RE.fullmatch(old_name) and ".." not in old_name
-                and old_path.is_file() and old_path.resolve() != (out / plan["filename"]).resolve()
-                and old.get("processing_key") == processing_key(plan, config)
-                and old.get("sha256") == file_hash(old_path) and cached_speech(key)):
-            shutil.copyfile(old_path, out / plan["filename"])
-            reused += 1
-            print("  Reused unchanged MP3", flush=True)
-            continue
-        if not cached_speech(key):
-            temporary = raw.with_suffix(".tmp.mp3")
-            try:
-                await synthesize(
-                    plan, temporary, timeout_seconds, attempts, retry_delay_seconds
-                )
-                temporary.replace(raw)
-                raw.with_suffix(".sha256").write_text(file_hash(raw) + "\n", encoding="utf-8")
-            finally:
-                temporary.unlink(missing_ok=True)
-            generated += 1
-            print("  Generated clean speech", flush=True)
-        else:
-            print("  Reused clean speech; applying PA effect", flush=True)
-        process_audio(raw, out / plan["filename"], config["audio"],
-                      config["audio"]["effect_presets"][plan["effect"]])
-        processed += 1
-    package(out, plans, config)
-    # Keep only active clean speech, after the entire pack succeeds.
-    active = {speech_key(plan) for plan in plans}
-    for path in SPEECH_CACHE.iterdir():
-        if path.suffix in (".mp3", ".sha256") and path.stem not in active:
-            path.unlink()
-    print(f"Complete: {reused} unchanged MP3s, {generated} new speech recordings, {processed} processed MP3s")
+    kokoro = None
+    if config.get("tts_engine", "edge") == "kokoro":
+        from kokoro_tts import KokoroSynthesizer
+        kokoro = KokoroSynthesizer(config["kokoro"])
+    try:
+        for index, plan in enumerate(plans, 1):
+            print(f"[{index}/{len(plans)}] {plan['id']} | {plan['voice']} | {plan['effect']}", flush=True)
+            raw = speech_path(plan)
+            old = previous.get(plan["id"], {})
+            # Resolve the old path only from a validated basename.
+            old_name = old.get("filename", "")
+            old_path = ROOT / "audio" / old_name
+            if (FILENAME_RE.fullmatch(old_name) and ".." not in old_name
+                    and old_path.is_file() and old_path.resolve() != (out / plan["filename"]).resolve()
+                    and old.get("processing_key") == processing_key(plan, config)
+                    and old.get("sha256") == file_hash(old_path) and cached_speech(plan)):
+                shutil.copyfile(old_path, out / plan["filename"])
+                reused += 1
+                print("  Reused unchanged MP3", flush=True)
+                continue
+            if not cached_speech(plan):
+                temporary = raw.with_name(raw.stem + ".tmp" + raw.suffix)
+                try:
+                    await synthesize(
+                        plan, temporary, timeout_seconds, attempts, retry_delay_seconds, kokoro
+                    )
+                    temporary.replace(raw)
+                    raw.with_suffix(".sha256").write_text(file_hash(raw) + "\n", encoding="utf-8")
+                finally:
+                    temporary.unlink(missing_ok=True)
+                generated += 1
+                print("  Generated clean speech", flush=True)
+            else:
+                print("  Reused clean speech; applying PA effect", flush=True)
+            process_audio(raw, out / plan["filename"], config["audio"],
+                          config["audio"]["effect_presets"][plan["effect"]])
+            processed += 1
+        package(out, plans, config)
+        # Keep only active clean speech, after the entire pack succeeds.
+        active = {speech_key(plan) for plan in plans}
+        for path in SPEECH_CACHE.iterdir():
+            if path.suffix in (".mp3", ".wav", ".sha256") and path.stem not in active:
+                path.unlink()
+        print(f"Complete: {reused} unchanged MP3s, {generated} new speech recordings, {processed} processed MP3s")
+    finally:
+        if kokoro is not None:
+            kokoro.close()
 
 
 if __name__ == "__main__":
@@ -362,3 +405,4 @@ if __name__ == "__main__":
     except (ValueError, RuntimeError, OSError, subprocess.CalledProcessError) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         sys.exit(1)
+

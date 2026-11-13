@@ -8,7 +8,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: acars-audio-pipeline
+  group: acars-audio-pipeline-${{ github.ref_name }}
   cancel-in-progress: false
 
 jobs:
@@ -74,3 +74,4 @@ jobs:
             echo "- ZIP includes MP3 files only (flat layout, no manifest)"
             echo "- [Open release](https://github.com/$GITHUB_REPOSITORY/releases/tag/$TAG)"
           } >> "$GITHUB_STEP_SUMMARY"
+
