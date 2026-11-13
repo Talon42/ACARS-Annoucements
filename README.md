@@ -1,53 +1,40 @@
 # ACARS Announcements
 
-Source library for spoken cabin-crew and flight-deck announcements. The canonical source is [`templates.json`](./templates.json), converted from the supplied `scripts.txt` on November 13, 2026.
+Reusable, flight-independent cabin-crew and flight-deck announcements for ACARS. The canonical source is [`templates.json`](./templates.json), converted from the original supplied text and updated to use only **generic, pre-recordable speech**.
 
-## Format
+## What is included
 
-- `schema_version`: version number for consumers of this JSON structure.
-- `voice_roles`: default Edge TTS voice and delivery options for the `flight_attendant` and `captain` roles. These are editable defaults, not guaranteed voice availability.
-- `variables`: descriptions of dynamic speech values required by templates.
-- `announcements`: one entry per recording with a stable `id`, a logical `event`, the original section `title`, a `speaker`, `channel`, `text`, and a list of `variables`.
-- `note` (optional): sequencing or presentation guidance, **not** text to synthesize.
+There are 16 uniquely identified announcements across nine event groups. Each one is fully written: **no variable substitution, airline names, destinations, flight numbers, time-of-day selections, or aircraft-specific values are required**.
 
-### Example
+Each `announcements[]` entry has:
 
-```json
-{
-  "id": "boarding_welcome_fa",
-  "event": "boarding_complete",
-  "title": "Boarding Complete / Welcome Aboard",
-  "speaker": "flight_attendant",
-  "channel": "passenger_pa",
-  "text": "Good {{time_of_day}} ladies and gentlemen...",
-  "variables": ["time_of_day", "airline_name", "flight_number", "destination", "captain_name"]
-}
-```
+- `id`: stable identifier for the recording and eventual filename.
+- `event`: logical trigger group.
+- `title`: original script section for organization; not spoken.
+- `speaker`: `flight_attendant` or `captain`.
+- `channel`: `passenger_pa` for cabin announcements or `crew_interphone` for internal calls.
+- `text`: the complete sentence(s) to synthesize into audio.
+- `variables`: an empty array for every recording; retained for JSON format compatibility.
+- `note` (optional): sequencing or audience guidance; not spoken.
 
-The JSON identifiers are **proposed stable announcement IDs**, not verified mappings to triggers in the existing ACARS app. The app's trigger IDs can be mapped separately without changing the spoken text.
+The top-level `variables` object is empty by design. `schema_version` remains `1` because the same general data structure is retained.
 
-## Passenger vs. crew playback
+## Edge TTS voices
 
-`channel: passenger_pa` indicates an announcement heard in the cabin. `channel: crew_interphone` indicates a crew-only/internal call. Three entries are crew-interphone messages. Their `note` fields indicate when they should play.
+`voice_roles` defines the intended Edge TTS voice for each speaker (currently `en-US-JennyNeural` for a flight attendant and `en-US-GuyNeural` for a captain), plus rate and pitch. These settings can be changed separately from the announcement scripts.
 
-Do not synthesize `title`, `note`, or `variables`; only the resolved `text` is spoken.
+## Passenger PA vs. crew interphone
 
-## Dynamic fields
+Three announcements have `channel: "crew_interphone"`. They are **not** passenger PA announcements. Your ACARS implementation should respect the channel when mapping these recordings to existing triggers.
 
-Tokens follow the `{{snake_case}}` convention. Examples include:
+`note` fields provide sequencing context (for example, an acknowledgement after a crosscheck), but they are not to be synthesized.
 
-- `{{airline_name}}` and `{{flight_number}}`
-- `{{destination}}`, `{{arrival_time}}`, and `{{gate_number}}`
-- `{{emergency_exit_count}}`, `{{emergency_exit_locations}}`, and `{{life_vest_location}}`
+## Safety briefing
 
-**Do not send unresolved placeholders to a text-to-speech service.** The generation pipeline should validate that every token in a selected announcement has a spoken value, or skip that announcement with a clear message.
+The generic safety briefing avoids specifying an emergency-exit count, exit arrangement, or life-vest placement. Instead it directs passengers to the aircraft-specific safety card and crew instructions. This is intended for flight-simulator immersion; it is **not** a certified safety briefing for real-world aviation operations.
 
-A flight-independent announcement (no entries in `variables`) can be generated once and reused. Flight-specific announcements must be rendered with a supplied value set (for example, a destination and flight number), or generated later as the user selects a flight. Because each flight can differ, a pre-rendered sound pack cannot cover unlimited dynamic values.
+## Planned audio build pipeline
 
-Aircraft-specific safety information must be checked against the aircraft before producing a briefing. The source text has not been verified for regulatory accuracy or rewritten beyond structural cleanup and removal of one stray text artifact.
+A future GitHub Actions workflow can read `templates.json` and generate exactly one recording per ID, using the appropriate speaker voice. Since every script is static, it can generate all recordings once, regenerate only changed recordings, and distribute a reusable audio ZIP for ACARS to play locally.
 
-## Planned generation workflow
-
-The next layer will read `templates.json`, resolve variables, select the voice for each speaker, synthesize audio via Edge TTS, and publish files using their stable announcement IDs. A GitHub Actions workflow can do this on a manual run or after a script change.
-
-No audio generation workflow is included yet, and this repository does not currently publish MP3 files.
+**This repository currently contains the source templates only. No audio-generation workflow, produced MP3 recordings, or published audio pack is included yet.**
