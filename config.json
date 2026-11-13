@@ -62,5 +62,10 @@
         "noise_mix": 0.35
       }
     }
+  },
+  "generation": {
+    "timeout_seconds": 10,
+    "max_attempts": 2,
+    "retry_delay_seconds": 2
   }
 }
