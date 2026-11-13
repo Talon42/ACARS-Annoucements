@@ -23,43 +23,71 @@
   "audio": {
     "sample_rate_hz": 24000,
     "bitrate_kbps": 128,
-    "default_effect": "off",
+    "default_effect": "medium",
     "channel_effects": {
-      "passenger_pa": "low",
+      "passenger_pa": "medium",
       "crew_interphone": "medium"
     },
     "effect_presets": {
       "off": {
         "highpass_hz": 0,
         "lowpass_hz": 0,
+        "presence_hz": 0,
+        "presence_gain_db": 0,
+        "compressor_threshold": 0,
+        "compressor_ratio": 1,
+        "compressor_attack_ms": 10,
+        "compressor_release_ms": 180,
+        "compressor_makeup": 1,
         "crusher_bits": 0,
         "crusher_mix": 0,
         "noise_amplitude": 0,
         "noise_mix": 0
       },
       "low": {
-        "highpass_hz": 170,
-        "lowpass_hz": 6400,
-        "crusher_bits": 16,
-        "crusher_mix": 0.02,
-        "noise_amplitude": 0.008,
-        "noise_mix": 0.1
+        "highpass_hz": 155,
+        "lowpass_hz": 5100,
+        "presence_hz": 2100,
+        "presence_gain_db": 1.7,
+        "compressor_threshold": 0.28,
+        "compressor_ratio": 2,
+        "compressor_attack_ms": 14,
+        "compressor_release_ms": 210,
+        "compressor_makeup": 1.14,
+        "crusher_bits": 13,
+        "crusher_mix": 0.035,
+        "noise_amplitude": 0.012,
+        "noise_mix": 0.12
       },
       "medium": {
-        "highpass_hz": 280,
-        "lowpass_hz": 3800,
-        "crusher_bits": 12,
-        "crusher_mix": 0.14,
-        "noise_amplitude": 0.025,
-        "noise_mix": 0.22
+        "highpass_hz": 220,
+        "lowpass_hz": 4200,
+        "presence_hz": 2350,
+        "presence_gain_db": 3.2,
+        "compressor_threshold": 0.21,
+        "compressor_ratio": 3.1,
+        "compressor_attack_ms": 10,
+        "compressor_release_ms": 180,
+        "compressor_makeup": 1.28,
+        "crusher_bits": 11,
+        "crusher_mix": 0.085,
+        "noise_amplitude": 0.028,
+        "noise_mix": 0.24
       },
       "high": {
-        "highpass_hz": 420,
-        "lowpass_hz": 2600,
-        "crusher_bits": 8,
-        "crusher_mix": 0.35,
-        "noise_amplitude": 0.05,
-        "noise_mix": 0.35
+        "highpass_hz": 310,
+        "lowpass_hz": 3350,
+        "presence_hz": 2300,
+        "presence_gain_db": 4.2,
+        "compressor_threshold": 0.17,
+        "compressor_ratio": 4,
+        "compressor_attack_ms": 8,
+        "compressor_release_ms": 160,
+        "compressor_makeup": 1.35,
+        "crusher_bits": 9,
+        "crusher_mix": 0.16,
+        "noise_amplitude": 0.045,
+        "noise_mix": 0.3
       }
     }
   },

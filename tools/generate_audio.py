@@ -77,9 +77,29 @@ def resolve(config, template):
         effect = overrides.get("effect", audio["channel_effects"].get(channel, audio["default_effect"]))
         if effect not in presets:
             fail(f"{identifier}: unknown effect {effect!r}; use {', '.join(presets)}")
-        for key in ("highpass_hz", "lowpass_hz", "crusher_bits", "crusher_mix", "noise_amplitude", "noise_mix"):
-            if key not in presets[effect] or not isinstance(presets[effect][key], (float, int)):
+        for key in ("highpass_hz", "lowpass_hz", "presence_hz", "presence_gain_db",
+                    "compressor_threshold", "compressor_ratio", "compressor_attack_ms",
+                    "compressor_release_ms", "compressor_makeup",
+                    "crusher_bits", "crusher_mix", "noise_amplitude", "noise_mix"):
+            if key not in presets[effect] or type(presets[effect][key]) not in (float, int):
                 fail(f"config.json: {effect} preset missing numeric {key}")
+        preset = presets[effect]
+        if preset["highpass_hz"] < 0 or not 0 <= preset["lowpass_hz"] < audio["sample_rate_hz"] / 2:
+            fail(f"{effect}: invalid cutoff frequencies")
+        if preset["highpass_hz"] > 0 and preset["lowpass_hz"] > 0 and preset["highpass_hz"] >= preset["lowpass_hz"]:
+            fail(f"{effect}: highpass must be lower than lowpass")
+        if not 0 <= preset["presence_hz"] < audio["sample_rate_hz"] / 2 or not -12 <= preset["presence_gain_db"] <= 12:
+            fail(f"{effect}: presence EQ out of range")
+        if not 0 <= preset["compressor_threshold"] <= 1 or not 1 <= preset["compressor_ratio"] <= 20:
+            fail(f"{effect}: invalid compression settings")
+        if not 0.01 <= preset["compressor_attack_ms"] <= 2000 or not 0.01 <= preset["compressor_release_ms"] <= 9000:
+            fail(f"{effect}: invalid compression timing")
+        if not 1 <= preset["compressor_makeup"] <= 8:
+            fail(f"{effect}: invalid compressor makeup gain")
+        if not 0 <= preset["crusher_mix"] <= 1 or not 0 <= preset["noise_mix"] <= 1:
+            fail(f"{effect}: mix levels must be between 0 and 1")
+        if not 0 <= preset["noise_amplitude"] <= 0.1 or not 0 <= preset["crusher_bits"] <= 64:
+            fail(f"{effect}: static or bit-crusher settings out of range")
         plans.append({
             "id": identifier, "filename": filename, "event": item.get("event", ""),
             "speaker": role, "channel": channel, "voice": voice, "text": text,
@@ -102,6 +122,21 @@ def process_audio(raw, output, audio, preset):
         filters.append(f"highpass=f={preset['highpass_hz']}")
     if preset["lowpass_hz"] > 0:
         filters.append(f"lowpass=f={preset['lowpass_hz']}")
+    # PA microphones and ceiling speakers emphasize speech consonants around 2-3 kHz.
+    if preset["presence_hz"] > 0 and preset["presence_gain_db"] != 0:
+        filters.append(
+            f"equalizer=f={preset['presence_hz']}:t=q:w=1:g={preset['presence_gain_db']}"
+        )
+    # A PA amplifier's leveled voice is more recognizable than constant added hiss.
+    if preset["compressor_threshold"] > 0 and preset["compressor_ratio"] > 1:
+        filters.append(
+            "acompressor="
+            f"threshold={preset['compressor_threshold']}:"
+            f"ratio={preset['compressor_ratio']}:"
+            f"attack={preset['compressor_attack_ms']}:"
+            f"release={preset['compressor_release_ms']}:"
+            f"makeup={preset['compressor_makeup']}"
+        )
     if preset["crusher_mix"] > 0:
         filters.append(f"acrusher=bits={preset['crusher_bits']}:mix={preset['crusher_mix']}")
     if preset["noise_amplitude"] > 0 and preset["noise_mix"] > 0:
