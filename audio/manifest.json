@@ -13,7 +13,7 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "low"
+      "effect": "medium"
     },
     {
       "id": "boarding_welcome_captain",
@@ -25,7 +25,7 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "low"
+      "effect": "medium"
     },
     {
       "id": "security_briefing_fa",
@@ -37,7 +37,7 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "low"
+      "effect": "medium"
     },
     {
       "id": "prepare_for_departure_fa",
@@ -49,7 +49,7 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "low"
+      "effect": "medium"
     },
     {
       "id": "prepare_for_departure_crew",
@@ -73,7 +73,7 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "low"
+      "effect": "medium"
     },
     {
       "id": "portable_electronics_fa",
@@ -85,7 +85,7 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "low"
+      "effect": "medium"
     },
     {
       "id": "flight_progress_captain",
@@ -97,7 +97,7 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "low"
+      "effect": "medium"
     },
     {
       "id": "final_descent_captain",
@@ -109,7 +109,7 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "low"
+      "effect": "medium"
     },
     {
       "id": "final_descent_fa",
@@ -121,7 +121,7 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "low"
+      "effect": "medium"
     },
     {
       "id": "prepare_for_landing_fa",
@@ -133,7 +133,7 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "low"
+      "effect": "medium"
     },
     {
       "id": "landing_crosscheck_crew",
@@ -169,7 +169,7 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "low"
+      "effect": "medium"
     },
     {
       "id": "arrival_welcome_fa",
@@ -181,7 +181,7 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "low"
+      "effect": "medium"
     },
     {
       "id": "deboarding_fa",
@@ -193,7 +193,7 @@
       "rate": "+20%",
       "pitch": "+0Hz",
       "volume": "+0%",
-      "effect": "low"
+      "effect": "medium"
     }
   ]
 }
