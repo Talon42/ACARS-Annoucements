@@ -4,7 +4,7 @@ Generate 16 reusable cabin-crew and flight-deck MP3 announcements with **Kokoro*
 
 ## Generate and review audio
 
-Use the **kokoro** branch for the current Kokoro version. Keep your edits and generation runs on the same branch.
+Use **main** for the current version. Keep your edits and generation runs on the same branch.
 
 1. **Edit the announcements in [templates.json](templates.json).** Each entry is one recording. Change `text` for the spoken words and `speaker` for who says them. Use `title` for the readable name and `filename` for the MP3 name; keep an existing `id` unchanged. Leave `voice: null` and `audio: {}` to use the shared settings.
 2. **Choose how they sound in [config.json](config.json).** Set `tts_engine` to `kokoro` or `edge`, then choose each role's voice under that engine. Adjust `tts_defaults` for speed, pitch, and volume, and `audio.default_effect` for PA strength. These settings apply to every announcement unless it has an individual override.
@@ -86,7 +86,7 @@ Kokoro runs locally on CPU and supports American/British English in this generat
 
 Use **+20% rate** for Edge or **1.2 speed** for Kokoro when available. Demos play clean speech without this project's PA effect and may differ in model version or available voices. Choose names from [VOICES.md](VOICES.md), which lists both engines and marks supported voices.
 
-[Refresh TTS Voices](https://github.com/Talon42/ACARS-Annoucements/actions/workflows/refresh-voices.yml) updates **VOICES.md** and **voices.json** together. Select **kokoro** for a manual branch refresh. Scheduled refreshes run Mondays at **10:25 UTC** on the default branch; the combined updater applies there after merge. Kokoro's list follows the pinned voice pack, so a newer pack requires updated asset settings.
+[Refresh TTS Voices](https://github.com/Talon42/ACARS-Annoucements/actions/workflows/refresh-voices.yml) updates **VOICES.md** and **voices.json** together. Select the branch you want to update for a manual refresh. Scheduled refreshes run Mondays at **10:25 UTC** on the default branch. Kokoro's list follows the pinned voice pack, so a newer pack requires updated asset settings.
 
 ## PA effect controls
 
