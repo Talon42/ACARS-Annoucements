@@ -1,26 +1,27 @@
 {
   "schema_version": 1,
-  "description": "Edit role voices, global delivery, and the unified PA effect here. Announcement-level overrides are in templates.json.",
+  "tts_engine": "kokoro",
+  "description": "tts_engine selects the matching voices entry for every role; the other engine's voices are inactive. Global speech delivery and PA effects are configured below.",
   "roles": {
     "captain": {
       "gender": "Male",
       "voices": {
-        "edge": "en-US-AndrewNeural",
-        "kokoro": "am_michael"
+        "kokoro": "am_michael",
+        "edge": "en-US-AndrewNeural"
       }
     },
     "copilot": {
       "gender": "Male",
       "voices": {
-        "edge": "en-US-BrianNeural",
-        "kokoro": "am_fenrir"
+        "kokoro": "am_fenrir",
+        "edge": "en-US-BrianNeural"
       }
     },
     "flight_attendant": {
       "gender": "Female",
       "voices": {
-        "edge": "en-US-EmmaNeural",
-        "kokoro": "af_heart"
+        "kokoro": "af_heart",
+        "edge": "en-US-EmmaNeural"
       }
     }
   },
@@ -102,7 +103,6 @@
     "retry_delay_seconds": 10,
     "kokoro_timeout_seconds": 300
   },
-  "tts_engine": "kokoro",
   "kokoro": {
     "release": "model-files-v1.1",
     "model_file": "kokoro-v1.0.onnx",

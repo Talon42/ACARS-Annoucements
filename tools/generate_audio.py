@@ -67,6 +67,9 @@ def resolve(config, template):
         if filename.casefold() in seen_files:
             fail(f"Duplicate output filename: {filename}")
         seen_files.add(filename.casefold())
+        title = item.get("title")
+        if not isinstance(title, str) or not title.strip():
+            fail(f"{identifier}: title must be a nonempty string")
         text = item.get("text")
         if not isinstance(text, str) or not text.strip() or UNRESOLVED_RE.search(text):
             fail(f"{identifier}: text is empty or contains unresolved placeholders")
@@ -100,7 +103,6 @@ def resolve(config, template):
                 fail(f"{identifier}: Kokoro does not support pitch offsets; use +0Hz")
             if int(settings["volume"][:-1]) < -100:
                 fail(f"{identifier}: Kokoro volume must be at least -100%")
-        channel = item.get("channel", "passenger_pa")
         effect = overrides.get("effect", audio["default_effect"])
         if effect not in presets:
             fail(f"{identifier}: unknown effect {effect!r}; use {', '.join(presets)}")
@@ -129,8 +131,8 @@ def resolve(config, template):
             fail(f"{effect}: static or bit-crusher settings out of range")
         plans.append({
             "engine": engine, "language": language,
-            "id": identifier, "filename": filename, "event": item.get("event", ""),
-            "speaker": role, "channel": channel, "voice": voice, "text": text,
+            "id": identifier, "filename": filename, "title": title,
+            "speaker": role, "voice": voice, "text": text,
             "rate": settings["rate"], "pitch": settings["pitch"], "volume": settings["volume"],
             "effect": effect,
         })
@@ -154,7 +156,7 @@ def file_hash(path):
 
 
 def speech_key(plan):
-    # No effect, filename, role, or channel: only inputs that change spoken audio.
+    # No effect, filename, role, or title: only inputs that change spoken audio.
     inputs = {k: plan[k] for k in ("text", "voice", "rate", "pitch", "volume")}
     if plan.get("engine", "edge") == "kokoro":
         inputs.update(engine="kokoro", language=plan["language"], model=plan["model_fingerprint"])
@@ -340,6 +342,15 @@ async def main():
         f"({len(set(p['voice'] for p in plans))} voices), "
         f"timeout={timeout_seconds}s, attempts={attempts}, retry_delay={retry_delay_seconds}s"
     )
+    print(f"Active TTS engine: {config.get('tts_engine', 'edge')}", flush=True)
+    for role in config["roles"]:
+        assigned = sorted({p["voice"] for p in plans if p["speaker"] == role})
+        if assigned:
+            print(f"  {role}: {', '.join(assigned)}", flush=True)
+        else:
+            settings = config["roles"][role]
+            voice = settings.get("voices", {}).get(config.get("tts_engine", "edge"), settings.get("voice"))
+            print(f"  {role}: {voice} (no announcements assigned)", flush=True)
     if args.validate:
         return
     out = Path(args.output).resolve()

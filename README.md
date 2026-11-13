@@ -36,10 +36,8 @@ Each entry in the **announcements** array of templates.json represents one MP3. 
 
     {
       "id": "boarding_welcome_fa",
-      "event": "boarding_complete",
       "title": "Boarding Complete / Welcome Aboard",
       "speaker": "flight_attendant",
-      "channel": "passenger_pa",
       "text": "Ladies and gentlemen, welcome aboard. Thank you for flying with us.",
       "variables": [],
       "filename": "boarding_welcome_fa.mp3",
@@ -63,20 +61,30 @@ All supplied announcements currently use role voices and global delivery setting
 - **voice: null** inherits the voice for that speaker from config.json; otherwise specify a voice short name present in voices.json for the selected engine.
 - **audio: {}** inherits rate/pitch/volume and the unified default PA effect. Override any subset of them individually.
 - **speaker** can be captain (male default), copilot (male default), or flight_attendant (female default); other roles can be defined in config.json.
-- **channel** may be passenger_pa or crew_interphone; the latter is not intended for passenger playback.
+- **title** is a readable announcement name, included in the manifest. Stable IDs and filenames distinguish recordings even when titles match.
+- **event** and **channel** are not needed by this generator and have been removed. Playback timing belongs to ACARS; PA processing is configured globally in config.json.
 - **variables** must remain an empty array. This is a static, generic sound library. Dynamic placeholders are rejected by the generator.
 
 To add a new announcement, duplicate an existing object, give it a unique **id** and **filename**, and update the text and other fields. No extra Python code or workflow changes are needed.
 
 ## Selecting the TTS engine
 
-Set **tts_engine** in config.json to **kokoro** or **edge**. This branch selects **kokoro** by default. Each role retains a voice for both engines, so switching that one setting selects the matching role defaults. The copilot voice is available for announcements assigned that role; the supplied scripts currently use captain and flight_attendant.
+The **tts_engine** setting is at the top of config.json. Set it to **kokoro** or **edge**. This branch selects **kokoro** by default. Each role retains a voice for both engines, so switching that one setting selects the matching role defaults. With `"tts_engine": "kokoro"`, only the `roles.<role>.voices.kokoro` entries are active; the Edge entries are inactive alternatives. Validation and generation print the active engine and resolved voices before processing. The copilot voice is available for announcements assigned that role; the supplied scripts currently use captain and flight_attendant.
 
 Kokoro runs locally on CPU through the pinned kokoro-onnx runtime. Model weights and voice assets are downloaded from the configured upstream release and verified against SHA-256 values in **kokoro**. They are cached in **.kokoro-models/**, excluded from Git, and cached between Actions runs. No API key or paid GPU is required. The GitHub Actions runner downloads assets only when missing; synthesis itself uses no remote speech endpoint.
 
 The generator supports American and British English Kokoro voices. The combined catalog lists all voices in the pinned pack, with other languages marked as catalog-only. Edge retains its existing multilingual voice support.
 
 For Kokoro, the global **+20%** rate maps to model speed **1.2**; supported rates are -50% through +100%. Pitch must remain **+0Hz** because this backend does not support Edge-style pitch offsets. Volume is applied to the clean waveform; settings below -100% are rejected. Edge keeps its own rate/pitch/volume controls. The PA effect is applied after either engine.
+
+## Preview voices before generation
+
+| Engine | Voice playground | What to try |
+| --- | --- | --- |
+| Edge | [Edge TTS web demo](https://huggingface.co/spaces/innoai/Edge-TTS-Text-to-Speech) (community hosted) | Paste a short announcement and select the exact Edge voice name from VOICES.md. |
+| Kokoro | [Official Kokoro voice demo](https://huggingface.co/spaces/hexgrad/Kokoro-TTS) | Try Heart (`af_heart`), Michael (`am_michael`), Fenrir (`am_fenrir`), or another voice in the catalog. |
+
+To compare with this config, use **+20% rate** for Edge or **1.2 speed** for Kokoro when the demo exposes that control. These sites preview clean speech; this repository adds its PA effect afterward. Demo voice availability and model/runtime versions can differ from the pinned generator, so choose a voice listed for the correct engine in [VOICES.md](VOICES.md). Hosted demos may have queues or usage limits.
 
 ## Default voice selections
 
@@ -106,7 +114,7 @@ The current config.json defaults are:
 
 Adjust rate, pitch, and volume in **tts_defaults** to change global speech delivery. Per-announcement audio overrides take precedence; the supplied templates currently have none.
 
-The audio.default_effect setting selects one unified PA effect for both passenger_pa and crew_interphone. Channels remain metadata for ACARS routing; they do not select different processing. Available strength presets are:
+The audio.default_effect setting selects one unified PA effect for all announcements. No channel setting is required. Available strength presets are:
 
 | Preset | Sound |
 | --- | --- |
@@ -123,7 +131,7 @@ Each preset in **audio.effect_presets** configures:
 - **crusher_bits / crusher_mix:** bit-crusher distortion; set crusher_mix to 0 to disable it.
 - **noise_amplitude / noise_mix:** added white noise; set either to 0 to disable it.
 
-The same preset system applies to every channel. An announcement can select a different strength through its **audio.effect** override; there are no separate PA and interphone profiles. A limiter follows enabled processing. The supplied **off** preset bypasses effects, but the output is still encoded to the configured MP3 format.
+The same preset system applies to every announcement. An announcement can select a different strength through its **audio.effect** override; there are no separate PA and interphone profiles. A limiter follows enabled processing. The supplied **off** preset bypasses effects, but the output is still encoded to the configured MP3 format.
 
 Output MP3 sample rate and bitrate are adjustable via **audio.sample_rate_hz** and **audio.bitrate_kbps**. Validation checks supported settings before synthesis.
 
@@ -135,7 +143,7 @@ Clean speech is cached by announcement text, resolved voice, rate, pitch, and vo
 - Changing only the PA effect, its strength/settings, sample rate, or bitrate reprocesses affected recordings from cached clean speech without calling a TTS engine. Recordings whose effective settings did not change retain their existing MP3s.
 - Changing a role voice regenerates only announcements that resolve to that voice; explicit voice overrides are respected.
 - Changing text regenerates only that announcement. Changing rate/pitch/volume regenerates only recordings whose resolved values changed.
-- Renaming an output or changing event/channel metadata does not require new speech. If the ID stays the same and processing is unchanged, the committed MP3 is reused.
+- Renaming an output or editing its title does not require new speech. If the ID stays the same and processing is unchanged, the committed MP3 is reused.
 - Missing or damaged clean speech is regenerated with the timeout/retry policy below. Unused cache entries are removed after a successful build.
 - Changes to tools/generate_audio.py invalidate final MP3 processing fingerprints, so cached clean speech is reprocessed. They do not automatically require new speech. Changing Kokoro model assets, requirements.txt, or tools/kokoro_tts.py invalidates Kokoro clean speech too.
 
@@ -172,7 +180,7 @@ After successful generation on main or kokoro, the workflow updates **/audio** a
       deboarding_fa.mp3
       manifest.json
 
-The manifest maps stable IDs to filenames, event, speaker, channel, voice, rate/pitch/volume, and effect. It also stores fingerprints of speech inputs and processing settings/code, plus a checksum of each final MP3. Release validation compares these with the current sources and files, rejecting stale or modified audio even when filenames match. The workflow fully replaces /audio each time (so removing or renaming templates also removes obsolete MP3s). As a safety measure, it will not force-push if the target branch changed while audio was synthesizing.
+The manifest maps stable IDs to filenames, title, speaker, engine, resolved voice, rate/pitch/volume, and effect. It also stores fingerprints of speech inputs and processing settings/code, plus a checksum of each final MP3. Release validation compares these with the current sources and files, rejecting stale or modified audio even when filenames match. The workflow fully replaces /audio each time (so removing or renaming templates also removes obsolete MP3s). As a safety measure, it will not force-push if the target branch changed while audio was synthesizing.
 
 Every successful generation also uploads a required 30-day preview artifact named **acars-announcements-audio**, containing a ZIP with manifest.json and audio/MP3 files. **A generation run never publishes a GitHub Release.**
 
