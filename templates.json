@@ -22,7 +22,10 @@
       "speaker": "flight_attendant",
       "channel": "passenger_pa",
       "text": "Ladies and gentlemen, welcome aboard. On behalf of our entire crew, we're pleased to have you with us today. We are currently finishing up the boarding process, and our captain will be making an announcement shortly. Please ensure all carry-on luggage is stowed securely in the overhead compartments or under the seat in front of you. For those seated in exit rows, please review the safety card and be familiar with your responsibilities. Thank you for choosing to fly with us today.",
-      "variables": []
+      "variables": [],
+      "filename": "boarding_welcome_fa.mp3",
+      "voice": null,
+      "audio": {}
     },
     {
       "id": "boarding_welcome_captain",
@@ -31,7 +34,10 @@
       "speaker": "captain",
       "channel": "passenger_pa",
       "text": "Ladies and gentlemen, this is your captain speaking from the flight deck. On behalf of the entire crew, I'd like to extend a warm welcome aboard. We're preparing for departure and will keep you informed of any important updates throughout the flight. Please make yourselves comfortable while our flight attendants complete their final cabin checks. We thank you for flying with us and look forward to a pleasant journey.",
-      "variables": []
+      "variables": [],
+      "filename": "boarding_welcome_captain.mp3",
+      "voice": null,
+      "audio": {}
     },
     {
       "id": "security_briefing_fa",
@@ -40,7 +46,10 @@
       "speaker": "flight_attendant",
       "channel": "passenger_pa",
       "text": "Ladies and gentlemen, your safety is our top priority. Please direct your attention to the flight attendants for a brief demonstration of the safety features of this aircraft. Ensure your seatbelt is securely fastened by inserting the metal fitting into the buckle and tightening the strap. To release, lift the top of the buckle. Please keep your seatbelt fastened low and tight across your hips whenever you are seated, as we may encounter unexpected turbulence. Please take a moment to locate the nearest emergency exit, keeping in mind that the closest exit may be behind you. In the unlikely event of a loss of cabin pressure, oxygen masks may deploy from above your seat. Follow the crew's instructions for using your mask, and secure your own mask before assisting anyone else. Information about emergency exits, flotation equipment, and other aircraft-specific safety features is provided on the safety information card near your seat. Federal Aviation Regulations require compliance with all lighted signs, posted placards, and crew instructions. Smoking, including e-cigarettes, is prohibited on this aircraft, including in the lavatories. Tampering with, disabling, or destroying lavatory smoke detectors is a federal offense. Please review the safety information card and follow the flight attendants' demonstration. If you have any questions, please don't hesitate to ask a flight attendant. Thank you for your attention.",
-      "variables": []
+      "variables": [],
+      "filename": "security_briefing_fa.mp3",
+      "voice": null,
+      "audio": {}
     },
     {
       "id": "prepare_for_departure_fa",
@@ -49,7 +58,10 @@
       "speaker": "flight_attendant",
       "channel": "passenger_pa",
       "text": "Ladies and gentlemen, we are now preparing for departure. Please ensure your seatbacks are in their full upright position, your tray tables are stowed, and all carry-on items are placed securely in the overhead bins or under the seat in front of you. Please also ensure your seatbelt is securely fastened. All portable electronic devices larger than a cell phone should be turned off and stowed at this time. Smaller devices, such as cell phones, must be set to airplane mode. Thank you for your cooperation.",
-      "variables": []
+      "variables": [],
+      "filename": "prepare_for_departure_fa.mp3",
+      "voice": null,
+      "audio": {}
     },
     {
       "id": "prepare_for_departure_crew",
@@ -59,7 +71,10 @@
       "channel": "crew_interphone",
       "text": "Flight attendants, please prepare the cabin for departure.",
       "variables": [],
-      "note": "Interphone/internal crew communication; not a passenger announcement."
+      "note": "Interphone/internal crew communication; not a passenger announcement.",
+      "filename": "prepare_for_departure_crew.mp3",
+      "voice": null,
+      "audio": {}
     },
     {
       "id": "prepare_for_departure_captain",
@@ -69,7 +84,10 @@
       "channel": "passenger_pa",
       "text": "Ladies and gentlemen, this is the Captain again. We have completed all pre-departure checks and are ready for pushback. We expect a brief taxi to the runway and a smooth takeoff. Please ensure your seatbelts are fastened and remain seated with your tray tables stowed and seatbacks upright until we have reached our cruising altitude and the Captain has turned off the fasten seatbelt sign. Thank you.",
       "variables": [],
-      "note": "Source indicates this occurs shortly after the crew call."
+      "note": "Source indicates this occurs shortly after the crew call.",
+      "filename": "prepare_for_departure_captain.mp3",
+      "voice": null,
+      "audio": {}
     },
     {
       "id": "portable_electronics_fa",
@@ -78,7 +96,10 @@
       "speaker": "flight_attendant",
       "channel": "passenger_pa",
       "text": "Ladies and gentlemen, the Captain has turned off the fasten seatbelt sign. You are now permitted to use approved portable electronic devices. Larger devices, such as laptops, may now be used. Please be mindful of your fellow passengers and keep the volume of your devices at a low level or use headphones. As a reminder, cellular service is not available at this altitude. If you are using a device, please ensure it is in airplane mode. The fasten seatbelt sign may be turned on again if we anticipate turbulence, so we recommend keeping your seatbelt loosely fastened whenever you are seated. Thank you.",
-      "variables": []
+      "variables": [],
+      "filename": "portable_electronics_fa.mp3",
+      "voice": null,
+      "audio": {}
     },
     {
       "id": "flight_progress_captain",
@@ -87,7 +108,10 @@
       "speaker": "captain",
       "channel": "passenger_pa",
       "text": "Ladies and gentlemen, this is the Captain speaking with a brief update from the flight deck. We are continuing along our route, and everything is proceeding as planned. We'll keep you informed of any significant changes as the flight continues. In the meantime, sit back, relax, and enjoy the rest of your flight.",
-      "variables": []
+      "variables": [],
+      "filename": "flight_progress_captain.mp3",
+      "voice": null,
+      "audio": {}
     },
     {
       "id": "final_descent_captain",
@@ -96,7 +120,10 @@
       "speaker": "captain",
       "channel": "passenger_pa",
       "text": "Ladies and gentlemen, this is your captain. We have now begun our descent. Please return to your seats and ensure your seatbelts are fastened. Our flight attendants will be coming through the cabin to prepare for arrival. For your safety, please remain seated with your seatbelt fastened until we are parked at the gate and the fasten seatbelt sign has been turned off. Thank you.",
-      "variables": []
+      "variables": [],
+      "filename": "final_descent_captain.mp3",
+      "voice": null,
+      "audio": {}
     },
     {
       "id": "final_descent_fa",
@@ -105,7 +132,10 @@
       "speaker": "flight_attendant",
       "channel": "passenger_pa",
       "text": "Ladies and gentlemen, as the Captain announced, we have started our descent. Please ensure your seatbelts are securely fastened. We ask that you return your seatbacks to their full upright position, stow your tray tables, and ensure all carry-on items are secured. Please also turn off and stow all portable electronic devices larger than a cell phone at this time. Smaller devices should remain in airplane mode. Thank you.",
-      "variables": []
+      "variables": [],
+      "filename": "final_descent_fa.mp3",
+      "voice": null,
+      "audio": {}
     },
     {
       "id": "prepare_for_landing_fa",
@@ -114,7 +144,10 @@
       "speaker": "flight_attendant",
       "channel": "passenger_pa",
       "text": "Ladies and gentlemen, we are now on our final approach. Please ensure your seatbelts are securely fastened, your seatbacks are upright, and your tray tables are stowed. All carry-on items should be stowed under the seat in front of you or in the overhead bin. Please also ensure the area around your feet is clear.",
-      "variables": []
+      "variables": [],
+      "filename": "prepare_for_landing_fa.mp3",
+      "voice": null,
+      "audio": {}
     },
     {
       "id": "landing_crosscheck_crew",
@@ -124,7 +157,10 @@
       "channel": "crew_interphone",
       "text": "Cabin crew, prepare for landing and crosscheck.",
       "variables": [],
-      "note": "Internal crew communication; not a passenger announcement."
+      "note": "Internal crew communication; not a passenger announcement.",
+      "filename": "landing_crosscheck_crew.mp3",
+      "voice": null,
+      "audio": {}
     },
     {
       "id": "landing_crosscheck_ack",
@@ -134,7 +170,10 @@
       "channel": "crew_interphone",
       "text": "Thank you.",
       "variables": [],
-      "note": "Source indicates this follows completion of the internal crosscheck."
+      "note": "Source indicates this follows completion of the internal crosscheck.",
+      "filename": "landing_crosscheck_ack.mp3",
+      "voice": null,
+      "audio": {}
     },
     {
       "id": "arrival_welcome_captain",
@@ -143,7 +182,10 @@
       "speaker": "captain",
       "channel": "passenger_pa",
       "text": "Ladies and gentlemen, we've arrived. On behalf of the entire crew, thank you for flying with us today. For your safety, please remain seated with your seatbelt fastened until we are parked at the gate and the fasten seatbelt sign has been turned off. Please be careful when opening overhead compartments as items may have shifted during the flight. We hope you enjoyed your flight with us.",
-      "variables": []
+      "variables": [],
+      "filename": "arrival_welcome_captain.mp3",
+      "voice": null,
+      "audio": {}
     },
     {
       "id": "arrival_welcome_fa",
@@ -152,7 +194,10 @@
       "speaker": "flight_attendant",
       "channel": "passenger_pa",
       "text": "Ladies and gentlemen, welcome. Please remain seated with your seatbelt fastened until the Captain has turned off the fasten seatbelt sign. When deplaning, please take all of your personal belongings with you. Be cautious when opening the overhead bins, as items may have moved. We appreciate you flying with us and hope to see you again soon.",
-      "variables": []
+      "variables": [],
+      "filename": "arrival_welcome_fa.mp3",
+      "voice": null,
+      "audio": {}
     },
     {
       "id": "deboarding_fa",
@@ -161,7 +206,10 @@
       "speaker": "flight_attendant",
       "channel": "passenger_pa",
       "text": "Ladies and gentlemen, we have arrived at the gate and the Captain has turned off the fasten seatbelt sign. You may now carefully stand up and gather your belongings. Please use caution when opening the overhead compartments. Please allow those seated in front of you to deplane first. Please ensure you have all your personal items with you before leaving the aircraft. On behalf of the entire crew, we thank you for flying with us and wish you safe travels.",
-      "variables": []
+      "variables": [],
+      "filename": "deboarding_fa.mp3",
+      "voice": null,
+      "audio": {}
     }
   ]
 }
