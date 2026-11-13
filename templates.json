@@ -1,18 +1,6 @@
 {
   "schema_version": 1,
-  "description": "Reusable, generic ACARS cabin and flight-deck announcement templates. Every announcement is static and flight-independent. Only text is spoken.",
-  "voice_roles": {
-    "flight_attendant": {
-      "voice": "en-US-JennyNeural",
-      "rate": "+0%",
-      "pitch": "+0Hz"
-    },
-    "captain": {
-      "voice": "en-US-GuyNeural",
-      "rate": "+0%",
-      "pitch": "+0Hz"
-    }
-  },
+  "description": "Static ACARS announcement catalog. Edit filename, text, speaker, voice override, or audio overrides on each entry. Voice-role defaults and audio effects live in config.json.",
   "variables": {},
   "announcements": [
     {
